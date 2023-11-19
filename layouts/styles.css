@@ -1,0 +1,17 @@
+.card.terms-of-service {
+    /* card styles */
+}
+
+.question-list {
+    list-style-type: none; /* Remove default list styles */
+    padding: 0;
+}
+
+.question-list li {
+    margin-bottom: 10px;
+}
+
+/* The checkboxes */
+.question-list input[type="checkbox"] {
+    margin-right: 5px;
+}
