@@ -359,7 +359,9 @@ class CommentCard extends HTMLElement {
 customElements.define('comment-card', CommentCard);
 
 
-
+// Post card
+// ------------
+// Displays a concise version of a post from a group
 class PostCard extends HTMLElement {
     constructor() {
         super();
