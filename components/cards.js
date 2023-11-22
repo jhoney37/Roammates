@@ -208,16 +208,17 @@ class SignInCard extends HTMLElement {
                 <form>
                     <label for="username">Username:</label>
                     <input type="text" id="username" name="username" class="input-field" 
-                    placeholder="Enter your username" required>
+                    placeholder="Enter your username" required> <br>
             
                     <label for="password">Password:</label>
                     <input type="password" id="password" name="password" class="input-field"
-                    placeholder="Enter your password" required>
+                    placeholder="Enter your password" required> <br>
                     
                     <button type="submit" class="basic blue">Sign in</button>
                 </form>
                 <p class="sub-primary">Don't have an account?</p>
-                <button class="basic orange">Sign up</button>
+                <button class=<button type="button" id="signup-button" class="basic orange">Sign up</button></button>
+
             </div>
         `;
     }
@@ -242,21 +243,21 @@ class SignUpCard extends HTMLElement {
                 <form>
                     <label for="username">Username:</label>
                     <input type="text" id="username" name="username" class="input-field" 
-                    placeholder="Enter your username" required>
+                    placeholder="Enter your username" required> <br>
             
                     <label for="signup-password">Password:</label>
                     <input type="password" id="signup-password" name="signup-password" 
-                    class="input-field" placeholder="Enter your password" required>
+                    class="input-field" placeholder="Enter your password" required> <br>
             
                     <label for="cnfrm-signup-password">Confirm Password:</label>
                     <input type="password" id="cnfrm-signup-password" name="cnfrm-signup-password" 
-                    class="input-field" placeholder="Confirm your password" required>
+                    class="input-field" placeholder="Confirm your password" required> <br>
             
                     <label for="email">UNCC Email:</label>
                     <input type="text" id="email" name="email" class="input-field"
-                    placeholder="Enter your email" required>
+                    placeholder="Enter your email" required> <br>
                     
-                    <button type="submit" class="basic orange">Sign up</button>
+                    <button type="button" id="confirm-button" class="basic orange">Confirm</button>
                 </form>
             </div>
         `;
@@ -278,10 +279,10 @@ class EmailConfirmationCard extends HTMLElement {
         this.innerHTML = `
             <div class="card" id="email-confirmation">
                 <p class="sub-primary">A confirmation has been sent to your email.</p>
-                <p class="sub-primary">Please type in the confirmation code below.</p>
+                <p class="sub-primary">Please type in the confirmation code below.</p> <br>
                 <form>
                     <input type="text" id="cnfrm-email" name="cnfrm-email" class="input-field"
-                    placeholder="Enter the confirmation code" required>
+                    placeholder="Enter the confirmation code" required> <br>
                     
                     <button type="submit" class="basic orange">Confirm</button>
                 </form>

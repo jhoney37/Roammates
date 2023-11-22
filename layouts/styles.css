@@ -15,3 +15,31 @@
 .question-list input[type="checkbox"] {
     margin-right: 5px;
 }
+
+/*I attempted to add my original popup code to the styles.css file however it appears its not working from here.
+it may be a problem with the way I've coded but I'll leave it here in case it does work*/
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.popup button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.popup button:hover {
+    background-color: #2980b9;
+}
