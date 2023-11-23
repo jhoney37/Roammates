@@ -217,7 +217,7 @@ class SignInCard extends HTMLElement {
                     <button type="submit" class="basic blue">Sign in</button>
                 </form>
                 <p class="sub-primary">Don't have an account?</p>
-                <button class=<button type="button" id="signup-button" class="basic orange">Sign up</button></button>
+                <button type="button" id="signup-button" class="basic orange">Sign up</button>
 
             </div>
         `;
@@ -278,15 +278,14 @@ class EmailConfirmationCard extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <div class="card" id="email-confirmation">
-                <p class="sub-primary">A confirmation has been sent to your email.</p>
-                <p class="sub-primary">Please type in the confirmation code below.</p> <br>
-                <form>
-                    <input type="text" id="cnfrm-email" name="cnfrm-email" class="input-field"
-                    placeholder="Enter the confirmation code" required> <br>
-                    
-                    <button type="submit" class="basic orange">Confirm</button>
-                </form>
-            </div>
+            <p class="sub-primary">A confirmation has been sent to your email.</p>
+            <p class="sub-primary">Please type in the confirmation code below.</p> <br>
+            <!-- Add the id attribute to the form for the event listener -->
+            <form id="email-confirmation-form">
+                <input type="text" id="cnfrm-email" name="cnfrm-email" class="input-field" placeholder="Enter the confirmation code" required> <br>
+                <button type="submit" class="basic orange">Confirm</button>
+            </form>
+        </div>
         `;
     }
 }
