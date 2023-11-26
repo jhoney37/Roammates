@@ -1,14 +1,14 @@
 /* Color variables */
 :root {
-    --black: 0F0F0F;
-    --dark-grey: 282828;
-    --light-grey: 545454;
-    --blue: 79D6D6;
-    --orange: D6A079;
-    --green: 79D69E;
-    --purple: 7B79D6;
-    --pink: BE79D6;
-    --red: D67979;
+    --black: #0F0F0F;
+    --dark-grey: #282828;
+    --light-grey: #545454;
+    --blue: #79D6D6;
+    --orange: #D6A079;
+    --green: #79D69E;
+    --purple: #7B79D6;
+    --pink: #BE79D6;
+    --red: #D67979;
 }
 
 body {
