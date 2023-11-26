@@ -227,16 +227,17 @@ class SignInCard extends HTMLElement {
 
     connectedCallback() {
         this.innerHTML = `
-            <div class="card" id="sign-in">
+            <div class="card" id="sign-in" style="text-align: center;">
                 <h1>Welcome</h1>
                 <form>
-                    <label for="username">Username:</label>
+                    <label for="username">Username:</label > <br>
                     <input type="text" id="username" name="username" class="input-field" 
-                    placeholder="Enter your username" required> <br>
+                    placeholder="Enter your username" required style="margin-top: 10px; margin-bottom: 10px;"> <br>
+                    
             
-                    <label for="password">Password:</label>
+                    <label for="password">Password:</label> <br>
                     <input type="password" id="password" name="password" class="input-field"
-                    placeholder="Enter your password" required> <br>
+                    placeholder="Enter your password" required style="margin-top: 10px; margin-bottom: 10px;"> <br>
                     
                     <button type="submit" class="basic blue">Sign in</button>
                 </form>
@@ -262,24 +263,24 @@ class SignUpCard extends HTMLElement {
 
     connectedCallback() {
         this.innerHTML = `
-            <div class="card" id="sign-up">
+            <div class="card" id="sign-up" style="text-align: center;">
                 <h1>Sign up</h1>
                 <form>
-                    <label for="username">Username:</label>
+                    <label for="username">Username:</label> <br>
                     <input type="text" id="username" name="username" class="input-field" 
-                    placeholder="Enter your username" required> <br>
+                    placeholder="Enter your username" required style="margin-top: 10px; margin-bottom: 10px;"> <br>
 
-                    <label for="signup-password">Password:</label>
+                    <label for="signup-password">Password:</label> <br>
                     <input type="password" id="signup-password" name="signup-password" 
-                    class="input-field" placeholder="Enter your password" required> <br>
+                    class="input-field" placeholder="Enter your password" required style="margin-top: 10px; margin-bottom: 10px;"> <br>
 
-                    <label for="cnfrm-signup-password">Confirm Password:</label>
+                    <label for="cnfrm-signup-password">Confirm Password:</label> <br>
                     <input type="password" id="cnfrm-signup-password" name="cnfrm-signup-password" 
-                    class="input-field" placeholder="Confirm your password" required> <br>
+                    class="input-field" placeholder="Confirm your password" required style="margin-top: 10px; margin-bottom: 10px;"> <br>
 
-                    <label for="email">UNCC Email:</label>
+                    <label for="email">UNCC Email:</label> <br>
                     <input type="text" id="email" name="email" class="input-field"
-                    placeholder="Enter your email" required> <br>
+                    placeholder="Enter your email" required style="margin-top: 10px; margin-bottom: 10px;"> <br>
                     
                     <button type="button" id="confirm-button" class="basic orange">Confirm</button>
                 </form>
@@ -301,12 +302,12 @@ class EmailConfirmationCard extends HTMLElement {
 
     connectedCallback() {
         this.innerHTML = `
-            <div class="card" id="email-confirmation">
+            <div class="card" id="email-confirmation" style="text-align: center;"> 
             <p class="sub-primary">A confirmation has been sent to your email.</p>
             <p class="sub-primary">Please type in the confirmation code below.</p> <br>
             <!-- Add the id attribute to the form for the event listener -->
             <form id="email-confirmation-form">
-                <input type="text" id="cnfrm-email" name="cnfrm-email" class="input-field" placeholder="Enter the confirmation code" required> <br>
+                <input type="text" id="cnfrm-email" name="cnfrm-email" class="input-field" placeholder="Enter the confirmation code" required style="margin-top: 10px; margin-bottom: 10px;"> <br>
                 <button type="submit" class="basic orange">Confirm</button>
             </form>
         </div>
