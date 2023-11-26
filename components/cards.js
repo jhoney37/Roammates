@@ -19,6 +19,29 @@ class MemberCard extends HTMLElement {
 customElements.define('member-card', MemberCard);
 
 
+// Members List Card
+// -----------
+// A compact list of users who are currently in a group
+class MemberListCard extends HTMLElement {
+    constructor() {
+        super();
+    }
+    
+    connectedCallback() {
+        this.innerHTML = `
+            <h1>Members</h1>
+            <div class="card" id="member-list">
+                <member-card id="green"></member-card>
+                <member-card id="purple"></member-card>
+                <member-card id="pink"></member-card>
+                <member-card id="red"></member-card>
+            </div>
+        `;
+    }
+}
+customElements.define('member-list-card', MemberListCard);
+
+
 // Profile Setup card
 // ------------------
 // Displays after successfully verifying email in the sign-up section
@@ -204,16 +227,17 @@ class SignInCard extends HTMLElement {
 
     connectedCallback() {
         this.innerHTML = `
-            <div class="card" id="sign-in">
+            <div class="card" id="sign-in" style="text-align: center;">
                 <h1>Welcome</h1>
                 <form>
-                    <label for="username">Username:</label>
+                    <label for="username">Username:</label > <br>
                     <input type="text" id="username" name="username" class="input-field" 
-                    placeholder="Enter your username" required> <br>
+                    placeholder="Enter your username" required style="margin-top: 10px; margin-bottom: 10px;"> <br>
+                    
             
-                    <label for="password">Password:</label>
+                    <label for="password">Password:</label> <br>
                     <input type="password" id="password" name="password" class="input-field"
-                    placeholder="Enter your password" required> <br>
+                    placeholder="Enter your password" required style="margin-top: 10px; margin-bottom: 10px;"> <br>
                     
                     <button type="submit" class="basic blue">Sign in</button>
                 </form>
@@ -239,24 +263,24 @@ class SignUpCard extends HTMLElement {
 
     connectedCallback() {
         this.innerHTML = `
-            <div class="card" id="sign-up">
+            <div class="card" id="sign-up" style="text-align: center;">
                 <h1>Sign up</h1>
                 <form>
-                    <label for="username">Username:</label>
+                    <label for="username">Username:</label> <br>
                     <input type="text" id="username" name="username" class="input-field" 
-                    placeholder="Enter your username" required> <br>
-            
-                    <label for="signup-password">Password:</label>
+                    placeholder="Enter your username" required style="margin-top: 10px; margin-bottom: 10px;"> <br>
+
+                    <label for="signup-password">Password:</label> <br>
                     <input type="password" id="signup-password" name="signup-password" 
-                    class="input-field" placeholder="Enter your password" required> <br>
-            
-                    <label for="cnfrm-signup-password">Confirm Password:</label>
+                    class="input-field" placeholder="Enter your password" required style="margin-top: 10px; margin-bottom: 10px;"> <br>
+
+                    <label for="cnfrm-signup-password">Confirm Password:</label> <br>
                     <input type="password" id="cnfrm-signup-password" name="cnfrm-signup-password" 
-                    class="input-field" placeholder="Confirm your password" required> <br>
-            
-                    <label for="email">UNCC Email:</label>
+                    class="input-field" placeholder="Confirm your password" required style="margin-top: 10px; margin-bottom: 10px;"> <br>
+
+                    <label for="email">UNCC Email:</label> <br>
                     <input type="text" id="email" name="email" class="input-field"
-                    placeholder="Enter your email" required> <br>
+                    placeholder="Enter your email" required style="margin-top: 10px; margin-bottom: 10px;"> <br>
                     
                     <button type="button" id="confirm-button" class="basic orange">Confirm</button>
                 </form>
@@ -278,12 +302,12 @@ class EmailConfirmationCard extends HTMLElement {
 
     connectedCallback() {
         this.innerHTML = `
-            <div class="card" id="email-confirmation">
+            <div class="card" id="email-confirmation" style="text-align: center;"> 
             <p class="sub-primary">A confirmation has been sent to your email.</p>
             <p class="sub-primary">Please type in the confirmation code below.</p> <br>
             <!-- Add the id attribute to the form for the event listener -->
             <form id="email-confirmation-form">
-                <input type="text" id="cnfrm-email" name="cnfrm-email" class="input-field" placeholder="Enter the confirmation code" required> <br>
+                <input type="text" id="cnfrm-email" name="cnfrm-email" class="input-field" placeholder="Enter the confirmation code" required style="margin-top: 10px; margin-bottom: 10px;"> <br>
                 <button type="submit" class="basic orange">Confirm</button>
             </form>
         </div>
@@ -370,12 +394,20 @@ class PostCard extends HTMLElement {
 
     connectedCallback() {
         this.innerHTML = `
-            <div class="card" id="post">
+            <div class="card post">
                 <ul>
                     <li class="primary">Title</li>
                     <li class="secondary">Author</li>
                     <li class="secondary">Date Posted</li>
                 </ul>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
+                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
+                    eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                    sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
             </div>
         `;
     }

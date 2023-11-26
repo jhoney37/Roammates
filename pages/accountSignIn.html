@@ -6,59 +6,14 @@
 
     <meta charset= "UTF-8">
     <meta name= "viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../layouts/styles.css" rel="stylesheet" type="text/css" /> 
     <script src= "../components/cards.js" type="text/javascript" defer></script>
     <script src= "../components/navbar.js" type="text/javascript" defer></script>
     <script src= "../components/scripts.js" type="text/javascript" defer></script>
 
-    <!-- Attempted to use styles.css but for some reason it wasn't working, 
-    created custom styles for my popup buttons as well as the main body and container code. -->
-
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 50px auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .popup button{
-            margin-top: 10px;
-            padding: 10px;
-            background-color: #3498db;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .popup button:hover {
-            background-color: #2980b9;
-        }
-
-    </style>
-
+    
     <title>Account Sign In</title>
+
 </head>
 
 <body>
@@ -67,17 +22,11 @@
     and linked the sign up's code to the email confirmation code.
     To do this I added event listeners in the scripts.js file. 
     i also changed the code for the 2 buttons but i believe apart from syntax functionality remains the same -->
-
+    
     <div class="container">
-        <!-- not sure if navbar actually does anything yet -->
-        <custom-navbar> </custom-navbar>
 
         <!-- The original existing Sign In Card -->
         <signin-card> </signin-card> <br>
-
-        <!-- Meryn said he wanted sign up and comfirm email to show up as popup cards, so heres the code that
-        enables the display of the popup cards. They're initally hidden and will appear after the right buttons
-        are pressed to continue on -->
 
         <!-- This popup card is for SignUp -->
         <div class="popup" id="signUpPopup">
