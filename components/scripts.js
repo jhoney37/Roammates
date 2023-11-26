@@ -24,6 +24,20 @@ function showSignUp() {
 
     // Add a class to the body to style it differently if needed
     document.body.classList.add('sign-up-mode');
+
+    // ---
+    // Edit by Meryn
+    // Adding the event listener after the sign-up card has loaded will allow the event listener to attach to the button
+    // ---
+    // Event listener for the "Confirm" button in the email confirmation card
+    document.getElementById("confirm-button").addEventListener("click", function (event) {
+        showEmailConfirmation();
+
+        event.preventDefault(); // Prevent the default form submission behavior
+
+        // Call the function to handle the email confirmation
+        handleEmailConfirmation();
+    });
 }
 
 function showEmailConfirmation() {
@@ -60,13 +74,5 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("signin-button").addEventListener("click", function () {
         // Call the function to show the sign-in card
         showSignIn();
-    });
-
-    // Event listener for the "Confirm" button in the email confirmation card
-    document.getElementById("email-confirmation-form").addEventListener("submit", function (event) {
-        event.preventDefault(); // Prevent the default form submission behavior
-
-        // Call the function to handle the email confirmation
-        handleEmailConfirmation();
     });
 });
