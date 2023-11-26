@@ -71,9 +71,10 @@ class ContactCard extends HTMLElement {
                     <h1>University Resources</h1>
                     
                     <ul class="resource-list">
-                        <li><a href="https://caps.charlotte.edu/" target="_blank">CAPS</a></li>
-                        <!-- Add more orgs later -->
-                    </ul>
+                    <li><a href="https://caps.charlotte.edu/" target="_blank">Center for Counseling and Psychological Services</a></li>
+                    <li><a href="https://cic.charlotte.edu/" target="_blank">Center for Integrated Care</a></li>
+                    <li><a href="https://sass.charlotte.edu/" target="_blank">Student Assistance and Support Services</a></li>
+                </ul>
                 </div>    
             </div>
         `;
