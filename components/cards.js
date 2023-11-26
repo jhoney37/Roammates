@@ -19,6 +19,29 @@ class MemberCard extends HTMLElement {
 customElements.define('member-card', MemberCard);
 
 
+// Members List Card
+// -----------
+// A compact list of users who are currently in a group
+class MemberListCard extends HTMLElement {
+    constructor() {
+        super();
+    }
+    
+    connectedCallback() {
+        this.innerHTML = `
+            <h1>Members</h1>
+            <div class="card" id="member-list">
+                <member-card id="green"></member-card>
+                <member-card id="purple"></member-card>
+                <member-card id="pink"></member-card>
+                <member-card id="red"></member-card>
+            </div>
+        `;
+    }
+}
+customElements.define('member-list-card', MemberListCard);
+
+
 // Profile Setup card
 // ------------------
 // Displays after successfully verifying email in the sign-up section
@@ -245,15 +268,15 @@ class SignUpCard extends HTMLElement {
                     <label for="username">Username:</label>
                     <input type="text" id="username" name="username" class="input-field" 
                     placeholder="Enter your username" required> <br>
-            
+
                     <label for="signup-password">Password:</label>
                     <input type="password" id="signup-password" name="signup-password" 
                     class="input-field" placeholder="Enter your password" required> <br>
-            
+
                     <label for="cnfrm-signup-password">Confirm Password:</label>
                     <input type="password" id="cnfrm-signup-password" name="cnfrm-signup-password" 
                     class="input-field" placeholder="Confirm your password" required> <br>
-            
+
                     <label for="email">UNCC Email:</label>
                     <input type="text" id="email" name="email" class="input-field"
                     placeholder="Enter your email" required> <br>
@@ -370,12 +393,20 @@ class PostCard extends HTMLElement {
 
     connectedCallback() {
         this.innerHTML = `
-            <div class="card" id="post">
+            <div class="card post">
                 <ul>
                     <li class="primary">Title</li>
                     <li class="secondary">Author</li>
                     <li class="secondary">Date Posted</li>
                 </ul>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
+                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
+                    eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                    sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
             </div>
         `;
     }

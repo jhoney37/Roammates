@@ -53,6 +53,7 @@ nav #logo {
     float: left;
     max-width: 8%;
     align-content: center;
+    filter: drop-shadow(4px 4px 4px black);
 }
 
 nav ul {
@@ -75,6 +76,24 @@ nav a {
 
 /* Cards */
 /* ----- */
+
+.card {
+    background-color: var(--dark-grey);
+    color: white;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+/* Post Card */
+
+.card.post {
+    display: flex;
+}
+
+.card.post.secondary li {
+    opacity: 0.5;
+}
+
 
 .card.terms-of-service {
     /* card styles */
@@ -123,14 +142,6 @@ it may be a problem with the way I've coded but I'll leave it here in case it do
     background-color: #2980b9;
 }
 
-
-/* CONTACT US PAGE - wasn't working so I put this in contacts.html */
-body {
-    background-color: #000000; /* background color for the entire page */
-    font-family: Arial, sans-serif; /* default font family */
-    color: white; /* text color for the entire page */
-}
-
 /* contact card */
 contact-card {
     display: block; /* contact card is a block-level element */
@@ -173,43 +184,4 @@ contact-card .resource-list a {
 /* links on hover */
 contact-card .resource-list a:hover {
     text-decoration: underline;
-}
-
-
-/* NAVIGATION BAR -- styles are not working */
-custom-navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #333;
-    padding: 10px;
-}
-
-/* Roammates title on the left side */
-custom-navbar h1 {
-    color: white;
-    margin: 0;
-}
-/* navigation buttons on the right side */
-custom-navbar nav {
-    display: flex;
-    align-items: center;
-}
-
-/* buttons */
-custom-navbar nav button {
-    background-color: #79D6D6;
-    color: black;
-    border: none;
-    border-radius: 5px;
-    margin-left: 10px;
-    cursor: pointer;
-}
-custom-navbar nav #home, nav #profile {
-    width: 175px;
-    height: 45px;
-}
-custom-navbar nav #my-groups, nav #contact-us {
-    width: 230px;
-    height: 45px;
 }
