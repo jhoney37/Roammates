@@ -6,11 +6,13 @@ class Navbar extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <nav>
-                <img id="logo" src="" alt="">
-                <a href="ListOfGroups.html" class="banner"><img src="" alt="">Home</a>
-                <a href="myGroups.html" class="banner"><img src="" alt="">My Groups</a>
-                <a href="profile.html" class="banner"><img src="" alt="">Profile</a></li>
-                <a href="contacts.html" class="banner"><img src="" alt="">Contact Us</a></li>
+                <img id="logo" src="../assets/Roammates Logo.png" alt="">
+                <ul>
+                    <li><a href="listOfGroups.html" class="button banner"><img src="" alt="">Home</a></li>
+                    <li><a href="myGroups.html" class="button banner"><img src="" alt="">My Groups</a></li>
+                    <li><a href="profile.html" class="button banner"><img src="" alt="">Profile</a></li>
+                    <li><a href="contacts.html" class="button banner"><img src="" alt="">Contact Us</a></li>
+                </ul>
             </nav>
         `;
     }

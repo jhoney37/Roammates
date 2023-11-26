@@ -1,3 +1,81 @@
+/* Google font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* Color variables */
+:root {
+    --black: #0F0F0F;
+    --dark-grey: #282828;
+    --light-grey: #545454;
+    --blue: #79D6D6;
+    --orange: #D6A079;
+    --green: #79D69E;
+    --purple: #7B79D6;
+    --pink: #BE79D6;
+    --red: #D67979;
+}
+
+/* Body */
+body {
+    background-color: var(--black);
+    margin-top: 5%;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+/* Components */
+/* ---------- */
+
+/* Buttons */
+.banner {
+    background-color: var(--blue);
+    padding: 5px 20px;
+    filter: drop-shadow(4px 4px 4px black);
+    border-radius: 5px;
+    color: black;
+}
+
+/* Navbar */
+nav {
+    background-color: var(--dark-grey);
+    padding: 15px 60px;
+    filter: drop-shadow(0px 6px 4px black);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav #logo {
+    float: left;
+    max-width: 8%;
+    align-content: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: right;
+}
+
+nav li {
+    display: inline-block;
+    margin-left: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white; /* Adjust the color as needed */
+    display: inline-block;
+}
+
+/* Cards */
+/* ----- */
+
 .card.terms-of-service {
     /* card styles */
 }
@@ -15,6 +93,7 @@
 .question-list input[type="checkbox"] {
     margin-right: 5px;
 }
+
 
 /*I attempted to add my original popup code to the styles.css file however it appears its not working from here.
 it may be a problem with the way I've coded but I'll leave it here in case it does work*/
@@ -42,4 +121,95 @@ it may be a problem with the way I've coded but I'll leave it here in case it do
 
 .popup button:hover {
     background-color: #2980b9;
+}
+
+
+/* CONTACT US PAGE - wasn't working so I put this in contacts.html */
+body {
+    background-color: #000000; /* background color for the entire page */
+    font-family: Arial, sans-serif; /* default font family */
+    color: white; /* text color for the entire page */
+}
+
+/* contact card */
+contact-card {
+    display: block; /* contact card is a block-level element */
+    background-color: #282828; 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    color: white; /
+}
+
+/* heading */
+contact-card h1 {
+    color: #FFFFFF;
+}
+
+/* paragraph */
+contact-card p {
+    margin-top: 10px;
+}
+
+/* resource list */
+contact-card .resource-list {
+    list-style: none;
+    padding: 0;
+}
+
+/* resource list items */
+contact-card .resource-list li {
+    margin-bottom: 10px;
+}
+
+/* links in the resource list */
+contact-card .resource-list a {
+    color: #D67979; 
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* links on hover */
+contact-card .resource-list a:hover {
+    text-decoration: underline;
+}
+
+
+/* NAVIGATION BAR -- styles are not working */
+custom-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px;
+}
+
+/* Roammates title on the left side */
+custom-navbar h1 {
+    color: white;
+    margin: 0;
+}
+/* navigation buttons on the right side */
+custom-navbar nav {
+    display: flex;
+    align-items: center;
+}
+
+/* buttons */
+custom-navbar nav button {
+    background-color: #79D6D6;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+custom-navbar nav #home, nav #profile {
+    width: 175px;
+    height: 45px;
+}
+custom-navbar nav #my-groups, nav #contact-us {
+    width: 230px;
+    height: 45px;
 }

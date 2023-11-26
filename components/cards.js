@@ -71,9 +71,10 @@ class ContactCard extends HTMLElement {
                     <h1>University Resources</h1>
                     
                     <ul class="resource-list">
-                        <li><a href="https://caps.charlotte.edu/" target="_blank">CAPS</a></li>
-                        <!-- Add more orgs later -->
-                    </ul>
+                    <li><a href="https://caps.charlotte.edu/" target="_blank">Center for Counseling and Psychological Services</a></li>
+                    <li><a href="https://cic.charlotte.edu/" target="_blank">Center for Integrated Care</a></li>
+                    <li><a href="https://sass.charlotte.edu/" target="_blank">Student Assistance and Support Services</a></li>
+                </ul>
                 </div>    
             </div>
         `;
@@ -217,7 +218,7 @@ class SignInCard extends HTMLElement {
                     <button type="submit" class="basic blue">Sign in</button>
                 </form>
                 <p class="sub-primary">Don't have an account?</p>
-                <button class=<button type="button" id="signup-button" class="basic orange">Sign up</button></button>
+                <button type="button" id="signup-button" class="basic orange">Sign up</button>
 
             </div>
         `;
@@ -278,15 +279,14 @@ class EmailConfirmationCard extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <div class="card" id="email-confirmation">
-                <p class="sub-primary">A confirmation has been sent to your email.</p>
-                <p class="sub-primary">Please type in the confirmation code below.</p> <br>
-                <form>
-                    <input type="text" id="cnfrm-email" name="cnfrm-email" class="input-field"
-                    placeholder="Enter the confirmation code" required> <br>
-                    
-                    <button type="submit" class="basic orange">Confirm</button>
-                </form>
-            </div>
+            <p class="sub-primary">A confirmation has been sent to your email.</p>
+            <p class="sub-primary">Please type in the confirmation code below.</p> <br>
+            <!-- Add the id attribute to the form for the event listener -->
+            <form id="email-confirmation-form">
+                <input type="text" id="cnfrm-email" name="cnfrm-email" class="input-field" placeholder="Enter the confirmation code" required> <br>
+                <button type="submit" class="basic orange">Confirm</button>
+            </form>
+        </div>
         `;
     }
 }
