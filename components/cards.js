@@ -9,9 +9,13 @@ class MemberCard extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <div class="card" id="member">
-                <p>Name</p>
-                <p>Pronouns</p>
-                <img src="" alt="">
+                <div id="name-pronouns">
+                    <p>Name</p>
+                    <p>Pronouns</p>
+                </div>
+                <div id="avatar">
+                    <img src="../assets/Profile Avatar.jpg" alt="">
+                </div>
             </div>
         `;
     }
@@ -29,8 +33,8 @@ class MemberListCard extends HTMLElement {
     
     connectedCallback() {
         this.innerHTML = `
-            <h1>Members</h1>
             <div class="card" id="member-list">
+                <h1>Members</h1>
                 <member-card id="green"></member-card>
                 <member-card id="purple"></member-card>
                 <member-card id="pink"></member-card>

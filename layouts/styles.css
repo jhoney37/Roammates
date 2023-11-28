@@ -17,7 +17,7 @@
 /* Body */
 body {
     background-color: var(--black);
-    margin-top: 5%;
+    margin-top: 60px;
     font-family: 'Roboto', sans-serif;
     color: white;
 }
@@ -26,19 +26,38 @@ body {
 /* ---------- */
 
 /* Buttons */
+
 .banner {
     background-color: var(--blue);
     padding: 5px 20px;
-    filter: drop-shadow(4px 4px 4px black);
-    border-radius: 5px;
+    filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.75));
+    border-radius: 8px;
     color: black;
 }
 
+.basic {
+    font-family: 'Roboto', sans-serif;
+    font-size: medium;
+    width: 120px;
+    height: 40px;
+    border-radius: 13px;
+    filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.75));
+}
+
+.basic.blue {
+    background-color: var(--blue);
+}
+
+.basic.orange {
+    background-color: var(--orange);
+}
+
 /* Navbar */
+
 nav {
     background-color: var(--dark-grey);
     padding: 15px 60px;
-    filter: drop-shadow(0px 6px 4px black);
+    filter: drop-shadow(0px 6px 2px rgba(0, 0, 0, 0.75));
     position: absolute;
     left: 0;
     right: 0;
@@ -53,7 +72,7 @@ nav #logo {
     float: left;
     max-width: 8%;
     align-content: center;
-    filter: drop-shadow(4px 4px 4px black);
+    filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.75));
 }
 
 nav ul {
@@ -81,18 +100,88 @@ nav a {
     background-color: var(--dark-grey);
     color: white;
     padding: 25px;
-    border-radius: 10px;
+    border-radius: 20px;
+    filter: drop-shadow(6px 6px 2px rgba(0, 0, 0, 0.75));
 }
 
 /* Post Card */
 
 .card.post {
-    display: flex;
+    margin-bottom: 30px;
 }
 
-.card.post.secondary li {
+.card.post ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.card.post li {
+    margin-right: 20px;
+}
+
+.card.post p {
+    margin-top: 5px;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.card.post .secondary {
     opacity: 0.5;
 }
+
+/* Member List Card */
+
+#member-list h1 {
+    text-align: center;
+    margin-top: 0;
+}
+
+#green #member {
+    background-color: var(--green);
+}
+
+#purple #member {
+    background-color: var(--purple);
+}
+
+#pink #member {
+    background-color: var(--pink);
+}
+
+#red #member {
+    background-color: var(--red);
+}
+
+/* Member Card */
+
+#member {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    margin-bottom: 20px;
+    height: 40px;
+}
+
+#member p {
+    margin: 0;
+    filter: drop-shadow(0px 3px 2px rgba(0, 0, 0, 0.75));
+}
+
+#member img {
+    margin-left: 40px;
+    max-height: 40px;
+    max-width: 40px;
+    border-radius: 25%;
+    filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.75));
+}
+
+#member #avatar {
+    display: flex;
+    align-items: center;
+}
+
 
 
 .card.terms-of-service {
