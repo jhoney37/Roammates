@@ -180,3 +180,21 @@ contact-card .resource-list a {
 contact-card .resource-list a:hover {
     text-decoration: underline;
 }
+
+/*Profile Page Styles*/
+#profile .text ul {
+    display: flex;
+    gap: 1.5rem;
+    align-items: baseline;
+    list-style: none;
+    margin-left: -2.6rem;
+}
+
+#profile .text .primary {
+    font-size: 30px;
+}
+
+#profile .text .secondary {
+    font-size: 20px;
+    opacity: 50%;
+}
