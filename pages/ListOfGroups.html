@@ -1,1 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="../layouts/styles.css" rel="stylesheet" type="text/css" />
+    <script src="../components/cards.js" type="text/javascript" defer></script>
+    <script src="../components/navbar.js" type="text/javascript" defer></script>
 
+    <title><div List="" of="" Groups=""></div></title>
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #columns-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; 
+            width: 100%;
+        }
+
+        #title {
+            text-align: center;
+            margin: 30px 0px;
+        }
+
+        #posts-list {
+            display: block;
+            width: 40%;
+            margin-right: 2.5%;
+        }
+    </style>
+</head>
+<body>
+    <custom-navbar></custom-navbar>
+
+    <header>
+        <h1 id="title">[List of Groups]</h1>
+    </header>
+
+    <div id="columns-container">
+        <div id="Group">
+            <group-card></group-card>
+            <group-card></group-card>
+            <group-card></group-card>
+            <group-card></group-card>
+            <group-card></group-card>
+            <group-card></group-card>
+        </div>
+    </div>
+</body>
+</html>
