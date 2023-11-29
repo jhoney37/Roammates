@@ -20,6 +20,11 @@ body {
     margin-top: 60px;
     font-family: 'Roboto', sans-serif;
     color: white;
+    overflow: auto;
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 /* Components */
@@ -36,6 +41,8 @@ body {
 }
 
 .basic {
+    border: 0;
+    cursor: pointer;
     font-family: 'Roboto', sans-serif;
     font-size: medium;
     width: 120px;
@@ -58,7 +65,7 @@ nav {
     background-color: var(--dark-grey);
     padding: 15px 60px;
     filter: drop-shadow(0px 6px 2px rgba(0, 0, 0, 0.75));
-    position: absolute;
+    position: fixed;
     left: 0;
     right: 0;
     top: 0;
@@ -106,28 +113,28 @@ nav a {
 
 /* Post Card */
 
-.card.post {
+#post {
     margin-bottom: 30px;
 }
 
-.card.post ul {
+#post ul {
     list-style-type: none;
     display: flex;
     margin: 0;
     padding: 0;
 }
 
-.card.post li {
+#post li {
     margin-right: 20px;
 }
 
-.card.post p {
+#post p {
     margin-top: 5px;
     margin-bottom: 0;
     padding: 0;
 }
 
-.card.post .secondary {
+#post .secondary {
     opacity: 0.5;
 }
 
