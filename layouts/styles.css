@@ -445,3 +445,36 @@ contact-card .resource-list a:hover {
     font-size: 20px;
     opacity: 50%;
 }
+
+/* Group Card */
+
+#group {
+    margin-bottom: 30px;
+    filter: brightness(1) drop-shadow(6px 6px 2px rgba(0, 0, 0, 1));
+    transition: all 0.2s;
+}
+
+#group:hover {
+    filter: brightness(120%) drop-shadow(6px 6px 2px rgba(0, 0, 0, 2));
+}
+
+#group ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+#group li {
+    margin-right: 20px;
+}
+
+#group p {
+    margin-top: 5px;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+#group .secondary {
+    opacity: 0.5;
+}
