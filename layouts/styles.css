@@ -448,29 +448,3 @@ contact-card .resource-list a:hover {
 #profile .text .secondary {
     opacity: 50%;
 }
-
-#profile .text {
-    grid-area: a;
-}
-
-#profile img {
-    height: 240px;
-    width: 240px;
-    grid-area: b;
-}
-
-#profile .carousel {
-    grid-area: c;
-}
-
-#profile button {
-    grid-area: d;
-}
-
-#profile {
-    display: grid;
-    grid-template-areas:
-    'a a b'
-    'c c c'
-    '. d d';
-}
