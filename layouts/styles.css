@@ -441,7 +441,10 @@ contact-card .resource-list a:hover {
     font-size: 30px;
 }
 
-#profile .text .secondary {
+#profile .text .secondary, #profile .text p {
     font-size: 20px;
+}
+
+#profile .text .secondary {
     opacity: 50%;
 }
