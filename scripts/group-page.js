@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", function() {
     var posts = document.querySelectorAll("#post")
     var expandedPost = document.getElementById("expanded-post");
 
+    var join = document.getElementById("join");
+
     overlay.addEventListener("click", function() {
         var clickX = event.clientX;
         var clickY = event.clientY;
@@ -19,5 +21,18 @@ document.addEventListener("DOMContentLoaded", function() {
             overlay.style.opacity = 1;
             overlay.style.visibility = "visible";
         });
+    });
+
+    join.addEventListener("click", () =>  {
+        if (join.textContent === "Join") {
+            join.textContent = "Leave";
+            join.classList.remove('blue');
+            join.classList.add('orange');
+        }
+        else {
+            join.textContent = "Join";
+            join.classList.remove('orange');
+            join.classList.add('blue');
+        }        
     });
 });

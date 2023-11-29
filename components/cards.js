@@ -35,10 +35,10 @@ class MemberListCard extends HTMLElement {
         this.innerHTML = `
             <div class="card" id="member-list">
                 <h1>Members</h1>
-                <member-card id="green"></member-card>
-                <member-card id="purple"></member-card>
-                <member-card id="pink"></member-card>
-                <member-card id="red"></member-card>
+                <member-card class="green"></member-card>
+                <member-card class="purple"></member-card>
+                <member-card class="pink"></member-card>
+                <member-card class="red"></member-card>
             </div>
         `;
     }
@@ -333,27 +333,27 @@ class ExpandedPostCard extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <div class="card" id="expanded-post">
-                <div>
-                    <div class="text">
-                        <ul>
-                            <li class="primary">Title</li>
-                            <li class="secondary">Date Posted</li>
-                        </ul>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
-                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
-                            eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                            sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
+                <div id="original-post">
+                    <div id="post-header">
+                        <h1>Title</h1>
+                        <h2>Date Posted</h2>
+                        <member-card class="green"></member-card>
                     </div>
-                    <member-card></member-card>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
+                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
+                        eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                        sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
                 </div>
                 <hr>
-                <comment-card></comment-card>
-                <comment-card></comment-card>
-                <comment-card></comment-card>
+                <comment-card class="purple"></comment-card>
+                <comment-card class="pink"></comment-card>
+                <comment-card class="red"></comment-card>
+                <comment-card class="green"></comment-card>
+                <comment-card class="purple"></comment-card>
                 <button class="basic blue">Reply</button>
             </div>
         `;
@@ -374,8 +374,10 @@ class CommentCard extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <div class="card" id="comment">
-                <member-card></member-card>
-                <h2>Date Posted</h2>
+                <div id="comment-header">
+                    <member-card></member-card>
+                    <h2>Date Posted</h2>
+                </div>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
                     incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
