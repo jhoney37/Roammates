@@ -332,7 +332,7 @@ class ExpandedPostCard extends HTMLElement {
 
     connectedCallback() {
         this.innerHTML = `
-            <div class="card" id="post">
+            <div class="card" id="expanded-post">
                 <div>
                     <div class="text">
                         <ul>
@@ -348,9 +348,11 @@ class ExpandedPostCard extends HTMLElement {
                             sunt in culpa qui officia deserunt mollit anim id est laborum.
                         </p>
                     </div>
+                    <member-card></member-card>
                 </div>
-                <member-card></member-card>
                 <hr>
+                <comment-card></comment-card>
+                <comment-card></comment-card>
                 <comment-card></comment-card>
                 <button class="basic blue">Reply</button>
             </div>
@@ -399,7 +401,7 @@ class PostCard extends HTMLElement {
 
     connectedCallback() {
         this.innerHTML = `
-            <div class="card post">
+            <div class="card" id="post">
                 <ul>
                     <li class="primary">Title</li>
                     <li class="secondary">Author</li>
