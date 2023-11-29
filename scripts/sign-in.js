@@ -106,6 +106,18 @@ function hideTermsOfService() {
 
 
 document.addEventListener("DOMContentLoaded", function () {
+    var letters = document.querySelectorAll(".letter");
+    console.log(`Amount of letters: ${letters.length}`)
+    for (var i=0; i<letters.length; i++) {
+        letters[i].style.animation = `10s ease-in-out ${i * 0.08}s infinite none running cross-fade-blur`;
+    }
+    for (var i=0; i<letters.length; i++) {
+        // console.log(`Amount of letters 2: ${letters.length}`)
+        letters[i].addEventListener("animationstart", function() {
+            letters[i].style.animation = `10s ease-in-out ${(i * 0.08)+6}s infinite none running cross-fade-blur`;
+        });
+    }
+
     // Event listener for the "Sign up" button in the sign-in card
     document.getElementById("signup-button").addEventListener("click", function () {
         // Call the function to show the sign-up card

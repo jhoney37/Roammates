@@ -11,9 +11,47 @@
     <script src= "../components/navbar.js" type="text/javascript" defer></script>
     <script src= "../scripts/sign-in.js" type="text/javascript" defer></script>
 
-    
     <title>Account Sign In</title>
 
+    <style>
+        @keyframes cross-fade-blur {
+            0% {
+                opacity: 0;
+                filter: blur(1rem);
+                transform: translate3d(0, 8rem, 0);
+            }
+            10%, 
+            50% {
+                opacity: 1;
+                filter: blur(0);
+                transform: translate3d(0, 0, 0);
+            }
+            60%,
+            100% {
+                opacity: 0;
+                filter: blur(1rem);
+                transform: translate3d(0, -8rem, 0)
+            }
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        #sign-in {
+            margin: 0 20px;
+        }
+
+        /* img {
+            filter: drop-shadow(6px 6px 2px rgba(0, 0, 0, 1));
+            animation: 2s ease 0s 1 cross-fade-blur;
+        } */
+    </style>
 </head>
 
 <body>
@@ -23,33 +61,42 @@
     To do this I added event listeners in the sign-in.js file. 
     i also changed the code for the 2 buttons but i believe apart from syntax functionality remains the same -->
     
-    <div class="container">
+    <span id="roam">
+        <img src="../assets/letters/R.png" class="letter">
+        <img src="../assets/letters/O.png" class="letter">
+        <img src="../assets/letters/A.png" class="letter">
+        <img src="../assets/letters/M.png" class="letter">
+    </span>
 
-        <!-- The original existing Sign In Card -->
-        <signin-card> </signin-card> <br>
+    <!-- The original existing Sign In Card -->
+    <signin-card> </signin-card> <br>
 
-        <!-- This popup card is for SignUp -->
-        <div class="popup" id="signUpPopup">
-            <signup-card></signup-card>
-            <button onclick="hideSignUp()">Close</button>
-        </div> <br>
+    <!-- This popup card is for SignUp -->
+    <div class="popup" id="signUpPopup">
+        <signup-card></signup-card>
+        <button onclick="hideSignUp()">Close</button>
+    </div> <br>
 
-        <!-- This popup card is for email confirmation -->
-        <div class="popup" id="emailConfirmationPopup">
-            <email-confirmation-card></email-confirmation-card>
-            <button onclick="hideEmailConfirmation()">Close</button>
-        </div> <br>
+    <!-- This popup card is for email confirmation -->
+    <div class="popup" id="emailConfirmationPopup">
+        <email-confirmation-card></email-confirmation-card>
+        <button onclick="hideEmailConfirmation()">Close</button>
+    </div> <br>
 
-        <!-- Popup card for Terms of Service -->
-        <div class="popup" id="termsOfServicePopup">
-            <terms-of-service-card></terms-of-service-card>
-           <!-- <button onclick="acceptTermsAndContinue()">Accept and Continue</button>
-            <button onclick="hideTermsOfService()">Close</button>
-        </div> -->
-        </div>
+    <!-- Popup card for Terms of Service -->
+    <div class="popup" id="termsOfServicePopup">
+        <terms-of-service-card></terms-of-service-card>
+        <!-- <button onclick="acceptTermsAndContinue()">Accept and Continue</button>
+        <button onclick="hideTermsOfService()">Close</button> -->
+    </div>
 
-
-    
+    <span id="mates">
+        <img src="../assets/letters/M2.png" class="letter">
+        <img src="../assets/letters/A2.png" class="letter">
+        <img src="../assets/letters/T.png" class="letter">
+        <img src="../assets/letters/E.png" class="letter">
+        <img src="../assets/letters/S.png" class="letter">
+    </span>
 </body>
 
 </html>

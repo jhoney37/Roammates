@@ -236,15 +236,13 @@ class SignInCard extends HTMLElement {
                 <h1>Welcome</h1>
                 <form>
                     <label for="username">Username:</label > <br>
-                    <input type="text" id="username" name="username" class="input-field" 
-                    placeholder="Enter your username" required style="margin-top: 10px; margin-bottom: 10px;"> <br>
+                    <input type="text" id="username" name="username" class="input-field"> <br>
                     
             
                     <label for="password">Password:</label> <br>
-                    <input type="password" id="password" name="password" class="input-field"
-                    placeholder="Enter your password" required style="margin-top: 10px; margin-bottom: 10px;"> <br>
+                    <input type="password" id="password" name="password" class="input-field"> <br>
                     
-                    <button type="submit" class="basic blue">Sign in</button>
+                    <button type="submit" class="basic blue" id="signin-button">Sign in</button>
                 </form>
                 <p class="sub-primary">Don't have an account?</p>
                 <button type="button" id="signup-button" class="basic orange">Sign up</button>

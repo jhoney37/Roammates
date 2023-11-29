@@ -32,32 +32,32 @@ body::-webkit-scrollbar {
 
 /* Buttons */
 
+button {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    border: 0;
+    cursor: pointer;
+    filter: brightness(1) drop-shadow(4px 4px 2px rgba(0, 0, 0, 1));
+    transition: all 0.2s;
+}
+
 .banner {
     background-color: var(--blue);
     padding: 5px 20px;
-    filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.75));
     border-radius: 8px;
     color: black;
 }
 
-.banner:hover {
-    filter: brightness(130%);
-}
-
 .basic {
-    border: 0;
-    cursor: pointer;
-    font-family: 'Roboto', sans-serif;
     font-size: medium;
     padding: 10px 0;
     width: 140px;
     border-radius: 13px;
-    filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.75));
-    transition: all 0.5s;
+    transition: all 0.2s;
 }
 
-.basic:hover {
-    filter: brightness(130%);
+button:hover {
+    filter: brightness(130%) drop-shadow(4px 4px 2px rgba(0, 0, 0, 2));
 }
 
 .basic.blue {
@@ -124,6 +124,12 @@ nav a {
 
 #post {
     margin-bottom: 30px;
+    filter: brightness(1) drop-shadow(6px 6px 2px rgba(0, 0, 0, 1));
+    transition: all 0.2s;
+}
+
+#post:hover {
+    filter: brightness(120%) drop-shadow(6px 6px 2px rgba(0, 0, 0, 2));
 }
 
 #post ul {
@@ -313,6 +319,39 @@ expanded-post-card {
     background-color: var(--red);
 }
 
+/* Sign-in Card */
+
+#sign-in {
+    padding: 25px 50px;
+}
+
+#sign-in input {
+    border: 0;
+    width: 250px;
+    height: 35px;
+    border-radius: 8px;
+    background-color: var(--black);
+    text-align: center;
+    color: white;
+    filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.75));
+    margin-top: 10px;
+    margin-bottom: 30px;
+    transition: all 0.5s;
+}
+
+#sign-in h1 {
+    margin-bottom: 30px;
+}
+
+#signin-button {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#signup-button {
+    margin-top: 0;
+    margin-bottom: 30px;
+}
 
 
 .card.terms-of-service {
@@ -341,19 +380,8 @@ expanded-post-card {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #282828;
     padding: 25px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-
-.container {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 /* contact card */
