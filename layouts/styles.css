@@ -492,11 +492,14 @@ contact-card .resource-list a:hover {
 
 /*Profile Page Styles*/
 
+.primary, .secondary {
+    list-style: none;
+}
+
 #profile .text ul {
     display: flex;
     gap: 1.5rem;
     align-items: baseline;
-    list-style: none;
     margin-left: -2.6rem;
 }
 
@@ -543,6 +546,17 @@ contact-card .resource-list a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+#mini-group ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+mini-group-card .primary, mini-group-card .secondary {
+    text-align: center;
+    margin-right: 2.6rem;
 }
 
 /* Group Card */
