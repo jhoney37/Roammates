@@ -178,7 +178,7 @@ class ProfileCard extends HTMLElement {
                     </p>
                 </div>
             
-                <img src="" alt="">
+                <img src="../assets/Profile Avatar.jpg" alt="Profile Avatar">
             
                 <div class="carousel">
                     <div id="header">
