@@ -139,7 +139,7 @@ class GroupCard extends HTMLElement {
 
                     <button class="basic blue">Join</button>
 
-                    <img src="" alt="">
+                    <img src="../assets/Profile Avatar.jpg" alt="">
                 </div>
             </div>
         `;
