@@ -236,11 +236,10 @@ class SignInCard extends HTMLElement {
                 <h1>Welcome</h1>
                 <form>
                     <label for="username">Username:</label > <br>
-                    <input type="text" id="username" name="username" class="input-field"> <br>
-                    
+                    <input type="text" id="signin-username" name="username" class="input-field"> <br>
             
                     <label for="password">Password:</label> <br>
-                    <input type="password" id="password" name="password" class="input-field"> <br>
+                    <input type="password" id="signin-password" name="password" class="input-field"> <br>
                     
                     <button type="submit" class="basic blue" id="signin-button">Sign in</button>
                 </form>
@@ -270,20 +269,13 @@ class SignUpCard extends HTMLElement {
                 <h1>Sign up</h1>
                 <form>
                     <label for="username">Username:</label> <br>
-                    <input type="text" id="username" name="username" class="input-field" 
-                    placeholder="Enter your username" required style="margin-top: 10px; margin-bottom: 10px;"> <br>
+                    <input type="text" id="signup-username" name="username" class="input-field"> <br>
 
                     <label for="signup-password">Password:</label> <br>
-                    <input type="password" id="signup-password" name="signup-password" 
-                    class="input-field" placeholder="Enter your password" required style="margin-top: 10px; margin-bottom: 10px;"> <br>
-
-                    <label for="cnfrm-signup-password">Confirm Password:</label> <br>
-                    <input type="password" id="cnfrm-signup-password" name="cnfrm-signup-password" 
-                    class="input-field" placeholder="Confirm your password" required style="margin-top: 10px; margin-bottom: 10px;"> <br>
+                    <input type="password" id="signup-password" name="signup-password" class="input-field"> <br>
 
                     <label for="email">UNCC Email:</label> <br>
-                    <input type="text" id="email" name="email" class="input-field"
-                    placeholder="Enter your email" required style="margin-top: 10px; margin-bottom: 10px;"> <br>
+                    <input type="text" id="signup-email" name="email" class="input-field"> <br>
                     
                     <button type="button" id="confirm-button" class="basic orange">Confirm</button>
                 </form>
@@ -306,13 +298,15 @@ class EmailConfirmationCard extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <div class="card" id="email-confirmation" style="text-align: center;"> 
-            <p class="sub-primary">A confirmation has been sent to your email.</p>
-            <p class="sub-primary">Please type in the confirmation code below.</p> <br>
-            <!-- Add the id attribute to the form for the event listener -->
-            <form id="email-confirmation-form">
-                <input type="text" id="cnfrm-email" name="cnfrm-email" class="input-field" placeholder="Enter the confirmation code" required style="margin-top: 10px; margin-bottom: 10px;"> <br>
-                <button type="submit" class="basic orange">Next</button>
-            </form>
+                <p class="sub-primary">A confirmation has been<br>
+                sent to your email.</p>
+                <p class="sub-primary">Please type in the<br>
+                confirmation code below.</p> <br>
+                <!-- Add the id attribute to the form for the event listener -->
+                <form id="email-confirmation-form">
+                    <input type="text" id="cnfrm-email" name="cnfrm-email" class="input-field"> <br>
+                    <button type="submit" class="basic orange" id="submit-confirmation">Next</button>
+                </form>
         </div>
         `;
     }
@@ -422,9 +416,9 @@ class PostCard extends HTMLElement {
 customElements.define('post-card', PostCard);
 
 
-//need to fix the scrollable portion
 // Terms of Service Card
 // ---------------------
+// style="text-align: left; height: 600px; overflow-y: auto;"
 class TermsOfServiceCard extends HTMLElement {
     constructor() {
         super();
@@ -432,43 +426,70 @@ class TermsOfServiceCard extends HTMLElement {
 
     connectedCallback() {
         this.innerHTML = `
-            <div class="card" id="terms-of-service" style="text-align: left; height: 600px; overflow-y: auto;">
+        
+            <div class="card" id="terms-of-service" style="text-align: center;">
                 <h1>Terms of Service</h1>
                 
                 <div class="question">
-                    <p>1. All of UNCC's Code of Conduct and integrity policies apply to this platform and must be followed at all times. Failure to adhere to the University's policies will result in direct termination of your account. The UNCC Code Of Conduct can be found here: https://legal.charlotte.edu/policies/up-406. Do you agree to be aware of and follow all university policies?</p>
+                    <p>
+                        1. All of UNCC's Code of Conduct and integrity policies apply to this platform and must be 
+                        followed at all times. Failure to adhere to the University's policies will result in direct 
+                        termination of your account. The UNCC Code Of Conduct can be found here:
+                        <br><br>https://legal.charlotte.edu/policies/up-406<br><br>
+                        Do you agree to be aware of and follow all university policies?
+                    </p>
                     <input type="checkbox" id="agree1" name="agree1" class="checkbox">
-                    <label for="agree1">Agree</label>
                 </div>
 
                 <div class="question">
-                    <p>2. This platform is designed for UNCC students. Therefore, all users of this platform can access the campus resources such as CAPS, CIC, and SASS. Roammates and UNCC are facilitative authorities, not responsible authorities. If you have any concerns contacting one of these resources, use the "Contact Us" page to find them or contact us directly so that we can help address your needs. Users of this platform must agree to take responsibility for their actions and behavior in order to use it. Failure to do so will result in termination of your account. Do you agree?</p>
+                    <p>
+                        2. This platform is designed for UNCC students. Therefore, all users of this platform can 
+                        access the campus resources such as CAPS, CIC, and SASS. Roammates and UNCC are facilitative 
+                        authorities, not responsible authorities. If you have any concerns contacting one of these 
+                        resources, use the "Contact Us" page to find them or contact us directly so that we can help 
+                        address your needs. Users of this platform must agree to take responsibility for their actions 
+                        and behavior in order to use it. Failure to do so will result in termination of your account. 
+                        Do you agree?
+                    </p>
                     <input type="checkbox" id="agree2" name="agree2" class="checkbox">
-                    <label for="agree2">Agree</label>
                 </div>
 
                 <div class="question">
-                    <p>3. The following personal data will be collected from all users in order to use this platform: student information (name, university email), and location. All data collected will be kept confidential and will only be accessed by the administrators of this website and UNCC. We will not sell your information to third parties. Do you consent to data collection?</p>
+                    <p>
+                        3. The following personal data will be collected from all users in order to use this platform: 
+                        student information (name, university email), and location. All data collected will be kept 
+                        confidential and will only be accessed by the administrators of this website and UNCC. We will 
+                        not sell your information to third parties. Do you consent to data collection?
+                    </p>
                     <input type="checkbox" id="agree3" name="agree3" class="checkbox">
-                    <label for="agree3">Agree</label>
                 </div>
 
                 <div class="question">
-                    <p>4. Users can report the inappropriate behavior of other users by using emailing the administration and using the "Contact Us" page. Users can report safely and Roammates agrees to keep any reported information confidential. Do you acknowledge this section?</p>
+                    <p>
+                        4. Users can report the inappropriate behavior of other users by using emailing the 
+                        administration and using the "Contact Us" page. Users can report safely and Roammates agrees 
+                        to keep any reported information confidential. Do you acknowledge this section?
+                    </p>
                     <input type="checkbox" id="agree4" name="agree4" class="checkbox">
-                    <label for="agree4">Agree</label>
                 </div>
 
                 <div class="question">
-                    <p>5. The administration of Roammates reserves the right to terminate any accounts that violate any previously stated policies, terms, or conditions. Moderators (employees of Roammates) will be monitoring forums for safety and etiquette. Do you acknowledge this?</p>
+                    <p>
+                        5. The administration of Roammates reserves the right to terminate any accounts that violate 
+                        any previously stated policies, terms, or conditions. Moderators (employees of Roammates) will 
+                        be monitoring forums for safety and etiquette. Do you acknowledge this?
+                    </p>
                     <input type="checkbox" id="agree5" name="agree5" class="checkbox">
-                    <label for="agree5">Agree</label>
                 </div>
 
                 <div class="question">
-                    <p>6. The legal terms of service stated here can be modified at any time and must be read and accepted by users before continuing to use this platform. Notifications regarding these updates will take place in a pop-up box format on the website and must be acknowledged before moving. Do you agree to these terms?</p>
+                    <p>
+                        6. The legal terms of service stated here can be modified at any time and must be read and 
+                        accepted by users before continuing to use this platform. Notifications regarding these 
+                        updates will take place in a pop-up box format on the website and must be acknowledged before 
+                        moving. Do you agree to these terms?
+                    </p>
                     <input type="checkbox" id="agree6" name="agree6" class="checkbox">
-                    <label for="agree6">Agree</label>
                 </div>
 
                 <button type="button" id="confirm-terms" class="basic orange">Agree to Terms</button>

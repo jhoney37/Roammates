@@ -14,13 +14,14 @@ function showSignIn() {
 
 function showSignUp() {
     // Get the sign-in card element
-    const signInCard = document.querySelector('signin-card');
+    const signInCard = document.getElementById('sign-in');
 
     // Create a new sign-up card element
-    const signUpCard = document.createElement('signup-card');
+    const signUpCard = document.getElementById('sign-up');
 
     // Replace the sign-in card with the sign-up card
-    signInCard.replaceWith(signUpCard);
+    signInCard.style.display = "none";
+    signUpCard.style.display = "block";
 
     // Add a class to the body to style it differently if needed
     document.body.classList.add('sign-up-mode');
@@ -30,14 +31,7 @@ function showSignUp() {
     // Adding the event listener after the sign-up card has loaded will allow the event listener to attach to the button
     // ---
     // Event listener for the "Confirm" button in the email confirmation card
-    document.getElementById("confirm-button").addEventListener("click", function (event) {
-        showEmailConfirmation();
-
-        event.preventDefault(); // Prevent the default form submission behavior
-
-        // Call the function to handle the email confirmation
-        handleEmailConfirmation();
-    });
+    
 }
 
 
@@ -52,11 +46,12 @@ function handleEmailConfirmation() {
 // Show the email confirmation (code entering) card
 function showEmailConfirmation() {
     // Get the sign-up card element directly from the body
-    const signUpCard = document.querySelector('signup-card');
+    const signUpCard = document.getElementById('sign-up');
     // Create a new email confirmation card element
-    const emailConfirmationCard = document.createElement('email-confirmation-card');
+    const emailConfirmationCard = document.getElementById('email-confirmation');
     // Replace the sign-up card with the email confirmation card within the body
-    signUpCard.replaceWith(emailConfirmationCard);
+    signUpCard.style.display = "none";
+    emailConfirmationCard.style.display = "block";
     // Add a class to the body to style it differently if needed
     document.body.classList.add('email-confirmation-mode');
     // Add event listener for the "Confirm" button in the email confirmation card
@@ -96,7 +91,7 @@ function hideEmailConfirmation() {
 // Show terms of service card -- unsure why there is a card on top of a card
 function showTermsOfService() {
     hideEmailConfirmation(); // Hide the email confirmation popup
-    document.getElementById('termsOfServicePopup').style.display = 'block';
+    document.getElementById('terms-of-service').style.display = 'block';
 }
 
 // Function to hide the Terms of Service popup
@@ -106,16 +101,10 @@ function hideTermsOfService() {
 
 
 document.addEventListener("DOMContentLoaded", function () {
+    // Animation loop
     var letters = document.querySelectorAll(".letter");
-    console.log(`Amount of letters: ${letters.length}`)
     for (var i=0; i<letters.length; i++) {
-        letters[i].style.animation = `10s ease-in-out ${i * 0.08}s infinite none running cross-fade-blur`;
-    }
-    for (var i=0; i<letters.length; i++) {
-        // console.log(`Amount of letters 2: ${letters.length}`)
-        letters[i].addEventListener("animationstart", function() {
-            letters[i].style.animation = `10s ease-in-out ${(i * 0.08)+6}s infinite none running cross-fade-blur`;
-        });
+        letters[i].style.animation = `6s ease-in-out ${i * 0.08}s infinite none running cross-fade-blur`;
     }
 
     // Event listener for the "Sign up" button in the sign-in card
@@ -130,8 +119,17 @@ document.addEventListener("DOMContentLoaded", function () {
         showSignIn();
     });
 
-    // Event listener for the "Confirm" button in the email confirmation card
     document.getElementById("confirm-button").addEventListener("click", function (event) {
+        showEmailConfirmation();
+
+        event.preventDefault(); // Prevent the default form submission behavior
+
+        // Call the function to handle the email confirmation
+        handleEmailConfirmation();
+    });
+
+    // Event listener for the "Confirm" button in the email confirmation card
+    document.getElementById("submit-confirmation").addEventListener("click", function (event) {
         showTermsOfService();
         event.preventDefault(); // Prevent the default form submission behavior
     });

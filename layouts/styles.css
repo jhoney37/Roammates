@@ -27,6 +27,20 @@ body::-webkit-scrollbar {
     display: none;
 }
 
+input {
+    border: 0;
+    width: 250px;
+    height: 35px;
+    border-radius: 8px;
+    background-color: var(--black);
+    text-align: center;
+    color: white;
+    filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.75));
+    margin-top: 10px;
+    margin-bottom: 30px;
+    transition: all 0.5s;
+}
+
 /* Components */
 /* ---------- */
 
@@ -115,15 +129,20 @@ nav a {
 .card {
     background-color: var(--dark-grey);
     color: white;
-    padding: 25px;
-    border-radius: 20px;
+    padding: 2em;
+    border-radius: 2em;
     filter: drop-shadow(6px 6px 2px rgba(0, 0, 0, 0.75));
+    overflow: auto;
+}
+
+.card::-webkit-scrollbar {
+    display: none;
 }
 
 /* Post Card */
 
 #post {
-    margin-bottom: 30px;
+    margin-bottom: 2em;
     filter: brightness(1) drop-shadow(6px 6px 2px rgba(0, 0, 0, 1));
     transition: all 0.2s;
 }
@@ -140,11 +159,11 @@ nav a {
 }
 
 #post li {
-    margin-right: 20px;
+    margin-right: 1.5em;
 }
 
 #post p {
-    margin-top: 5px;
+    margin-top: 0.4em;
     margin-bottom: 0;
     padding: 0;
 }
@@ -156,7 +175,7 @@ nav a {
 /* Member List Card */
 
 #member-list #member {
-    margin-bottom: 20px;
+    margin-bottom: 1.5em;
 }
 
 #member-list h1 {
@@ -185,7 +204,7 @@ nav a {
 #member {
     display: flex;
     justify-content: space-between;
-    padding: 10px;
+    padding: 0.7em;
     height: 40px;
     border-radius: 14px;
 }
@@ -325,20 +344,6 @@ expanded-post-card {
     padding: 25px 50px;
 }
 
-#sign-in input {
-    border: 0;
-    width: 250px;
-    height: 35px;
-    border-radius: 8px;
-    background-color: var(--black);
-    text-align: center;
-    color: white;
-    filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.75));
-    margin-top: 10px;
-    margin-bottom: 30px;
-    transition: all 0.5s;
-}
-
 #sign-in h1 {
     margin-bottom: 30px;
 }
@@ -350,6 +355,63 @@ expanded-post-card {
 
 #signup-button {
     margin-top: 0;
+    margin-bottom: 30px;
+}
+
+/* Sign-up Card */
+
+#sign-up {
+    padding: 25px 50px;
+}
+
+#sign-up h1 {
+    margin-bottom: 30px;
+}
+
+#confirm-button {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+/* Email Confirmation Card */
+
+#email-confirmation {
+    padding: 25px 50px;
+    padding-top: 35px;
+}
+
+#submit-confirmation {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+#cnfrm-email {
+    margin-top: 0;
+}
+
+/* Terms of Service Card */
+
+#terms-of-service {
+    padding: 25px 50px;
+    text-align: center;
+    height: 40em; 
+    overflow-y: auto;
+}
+
+#terms-of-service p {
+    text-align: left;
+    width: 25em;
+}
+
+#terms-of-service .checkbox {
+    margin: 0;
+    width: 2em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#confirm-terms {
+    margin-top: 30px;
     margin-bottom: 30px;
 }
 

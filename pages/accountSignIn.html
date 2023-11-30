@@ -20,17 +20,20 @@
                 filter: blur(1rem);
                 transform: translate3d(0, 8rem, 0);
             }
-            10%, 
-            50% {
+            15% {
                 opacity: 1;
                 filter: blur(0);
                 transform: translate3d(0, 0, 0);
             }
-            60%,
+            85% {
+                opacity: 1;
+                filter: blur(0);
+                transform: translate3d(0, 0, 0);
+            }
             100% {
                 opacity: 0;
                 filter: blur(1rem);
-                transform: translate3d(0, -8rem, 0)
+                transform: translate3d(0, -8rem, 0);
             }
         }
 
@@ -43,14 +46,13 @@
             margin: 0;
         }
 
-        #sign-in {
-            margin: 0 20px;
+        .card {
+            margin: 0 1.5em;
         }
 
-        /* img {
-            filter: drop-shadow(6px 6px 2px rgba(0, 0, 0, 1));
-            animation: 2s ease 0s 1 cross-fade-blur;
-        } */
+        #sign-up, #email-confirmation, #terms-of-service {
+            display: none;
+        }
     </style>
 </head>
 
@@ -68,27 +70,10 @@
         <img src="../assets/letters/M.png" class="letter">
     </span>
 
-    <!-- The original existing Sign In Card -->
-    <signin-card> </signin-card> <br>
-
-    <!-- This popup card is for SignUp -->
-    <div class="popup" id="signUpPopup">
-        <signup-card></signup-card>
-        <button onclick="hideSignUp()">Close</button>
-    </div> <br>
-
-    <!-- This popup card is for email confirmation -->
-    <div class="popup" id="emailConfirmationPopup">
-        <email-confirmation-card></email-confirmation-card>
-        <button onclick="hideEmailConfirmation()">Close</button>
-    </div> <br>
-
-    <!-- Popup card for Terms of Service -->
-    <div class="popup" id="termsOfServicePopup">
-        <terms-of-service-card></terms-of-service-card>
-        <!-- <button onclick="acceptTermsAndContinue()">Accept and Continue</button>
-        <button onclick="hideTermsOfService()">Close</button> -->
-    </div>
+    <signin-card></signin-card>
+    <signup-card></signup-card>
+    <email-confirmation-card></email-confirmation-card>
+    <terms-of-service-card></terms-of-service-card>
 
     <span id="mates">
         <img src="../assets/letters/M2.png" class="letter">
