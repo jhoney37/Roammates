@@ -491,6 +491,7 @@ contact-card .resource-list a:hover {
 }
 
 /*Profile Page Styles*/
+
 #profile .text ul {
     display: flex;
     gap: 1.5rem;
@@ -509,6 +510,39 @@ contact-card .resource-list a:hover {
 
 #profile .text .secondary {
     opacity: 50%;
+}
+
+#profile .text img {
+    max-width: 100%;
+    grid-area: b;
+}
+
+#profile img {
+    max-width: 20%;
+}
+
+.carousel {
+    margin-bottom: 1rem;
+}
+
+.carousel p {
+    background-color: var(--black);
+    text-align: center;
+    border-radius: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1.5rem;
+}
+
+.profile-container {
+    display: flex;
+}
+
+#profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Group Card */
