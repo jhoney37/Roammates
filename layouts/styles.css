@@ -527,6 +527,7 @@ contact-card .resource-list a:hover {
 
 #profile img {
     max-width: 20%;
+    border-radius: 13px;
 }
 
 .carousel {
@@ -556,15 +557,27 @@ contact-card .resource-list a:hover {
     margin-bottom: 0.5rem;
 }
 
-#mini-group ul {
+#mini-group, #mini-group ul {
     display: flex;
     flex-direction: column;
+}
+
+#mini-group {
+    justify-content: center;
+    align-items: center;
+}
+
+#mini-group ul {
     gap: 0.5rem;
 }
 
 #mini-group .primary, #mini-group .secondary {
     text-align: center;
     margin-right: 2.6rem;
+}
+
+#mini-group img {
+    max-width: 40%;
 }
 
 /* Group Card */

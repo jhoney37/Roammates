@@ -216,7 +216,7 @@ class MiniGroupCard extends HTMLElement {
                     <li class="primary">Location</li>
                 </ul>
             
-                <img src="" alt="">
+                <img src="../assets/Group Avatar.png" alt="Group Avatar">
             </div>
         `;
     }
