@@ -565,10 +565,12 @@ contact-card .resource-list a:hover {
 #mini-group {
     justify-content: center;
     align-items: center;
+    width: 250px;
 }
 
 #mini-group ul {
     gap: 0.5rem;
+    margin-top: -5px;
 }
 
 #mini-group .primary, #mini-group .secondary {
@@ -577,7 +579,7 @@ contact-card .resource-list a:hover {
 }
 
 #mini-group img {
-    max-width: 40%;
+    max-width: 100%;
 }
 
 /* Group Card */
