@@ -496,6 +496,16 @@ contact-card .resource-list a:hover {
     list-style: none;
 }
 
+#profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-head {
+    display: flex;
+}
+
 #profile .text ul {
     display: flex;
     gap: 1.5rem;
@@ -515,17 +525,16 @@ contact-card .resource-list a:hover {
     opacity: 50%;
 }
 
-#profile .text img {
-    max-width: 100%;
-    grid-area: b;
-}
-
 #profile img {
     max-width: 20%;
 }
 
 .carousel {
-    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 2.5rem;
+    background-color: var(--light-grey);
+    border-radius: 13px;
+    width: 90vw;
 }
 
 .carousel #header {
@@ -543,16 +552,8 @@ contact-card .resource-list a:hover {
     align-items: center;
     height: 1.5rem;
     width: 175px;
-}
-
-.profile-head {
-    display: flex;
-}
-
-#profile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin-top: -10px;
+    margin-bottom: 0.5rem;
 }
 
 #mini-group ul {
@@ -561,11 +562,7 @@ contact-card .resource-list a:hover {
     gap: 0.5rem;
 }
 
-mini-group-card #mini-group {
-    width: 60vw;
-}
-
-mini-group-card .primary, mini-group-card .secondary {
+#mini-group .primary, #mini-group .secondary {
     text-align: center;
     margin-right: 2.6rem;
 }
