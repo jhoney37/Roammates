@@ -162,7 +162,7 @@ class ProfileCard extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <div class="card" id="profile">
-                <div class="profile-container">
+                <div class="profile-head">
                     <div class="text">
                         <ul>
                             <li class="primary">Name</li>

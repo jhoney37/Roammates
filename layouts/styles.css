@@ -528,6 +528,12 @@ contact-card .resource-list a:hover {
     margin-bottom: 1rem;
 }
 
+.carousel #header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .carousel p {
     background-color: var(--black);
     text-align: center;
@@ -536,9 +542,10 @@ contact-card .resource-list a:hover {
     justify-content: center;
     align-items: center;
     height: 1.5rem;
+    width: 175px;
 }
 
-.profile-container {
+.profile-head {
     display: flex;
 }
 
@@ -552,6 +559,10 @@ contact-card .resource-list a:hover {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+}
+
+mini-group-card #mini-group {
+    width: 60vw;
 }
 
 mini-group-card .primary, mini-group-card .secondary {
