@@ -51,7 +51,7 @@ button {
     font-size: 1em;
     border: 0;
     cursor: pointer;
-    filter: brightness(1) drop-shadow(4px 4px 2px rgba(0, 0, 0, 1));
+    filter: brightness(1) drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.75));
     transition: all 0.2s;
 }
 
@@ -87,7 +87,7 @@ button:hover {
 nav {
     background-color: var(--dark-grey);
     padding: 15px 60px;
-    filter: drop-shadow(0px 6px 2px rgba(0, 0, 0, 0.75));
+    filter: drop-shadow(6px 6px 2px rgba(0, 0, 0, 0.75));
     position: fixed;
     left: 0;
     right: 0;
@@ -102,7 +102,7 @@ nav #logo {
     float: left;
     max-width: 8%;
     align-content: center;
-    filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.75));
+    filter: drop-shadow(6px 6px 2px rgba(0, 0, 0, 0.75));
 }
 
 nav ul {
@@ -131,7 +131,7 @@ nav a {
     color: white;
     padding: 2em;
     border-radius: 2em;
-    filter: drop-shadow(6px 6px 2px rgba(0, 0, 0, 0.75));
+    filter: brightness(1) drop-shadow(6px 6px 2px rgba(0, 0, 0, 0.75));
     overflow: auto;
 }
 
@@ -143,7 +143,7 @@ nav a {
 
 #post {
     margin-bottom: 2em;
-    filter: brightness(1) drop-shadow(6px 6px 2px rgba(0, 0, 0, 1));
+    filter: brightness(1) drop-shadow(6px 6px 2px rgba(0, 0, 0, 0.75));
     transition: all 0.2s;
 }
 
@@ -211,7 +211,7 @@ nav a {
 
 #member p {
     margin: 0;
-    filter: drop-shadow(0px 3px 2px rgba(0, 0, 0, 0.75));
+    filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.75));
 }
 
 #member img {
@@ -415,47 +415,65 @@ expanded-post-card {
     margin-bottom: 30px;
 }
 
+/* Group Card */
 
-.card.terms-of-service {
-    /* card styles */
+#group {
+    display: flex;
+    margin-bottom: 2em;
+    transition: all 0.2s;
 }
 
-.question-list {
-    list-style-type: none; /* Remove default list styles */
+#group .column {
+    display: flex;
+    flex-direction: column;
+}
+
+#group #left {
+    margin-right: 3em;
+}
+
+#group #left p {
+    margin-top: 1.5em;
+}
+
+#group #right {
+    align-items: center;
+    justify-content: center;
+}
+
+#group #right img {
+    width: 15em;
+    border-radius: 10%;
+    margin-bottom: 1em;
+    filter: drop-shadow(6px 6px 2px rgba(0, 0, 0, 0.75));
+}
+
+#group:hover {
+    filter: brightness(120%) drop-shadow(6px 6px 2px rgba(0, 0, 0, 2));
+}
+
+#group ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
     padding: 0;
 }
 
-.question-list li {
-    margin-bottom: 10px;
+#group li {
+    margin-right: 20px;
 }
 
-/* The checkboxes */
-.question-list input[type="checkbox"] {
-    margin-right: 5px;
+#group p {
+    margin-top: 5px;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+#group .secondary {
+    opacity: 0.5;
 }
 
 
-/*Code that stylizes the container and popup to align with the style of the website*/
-.popup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 25px;
-    border-radius: 10px;
-}
-
-/* contact card */
-contact-card {
-    display: block; /* contact card is a block-level element */
-    background-color: #282828; 
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin: 20px;
-    color: white; /
-}
 
 /* heading */
 contact-card h1 {
