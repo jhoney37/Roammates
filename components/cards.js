@@ -191,12 +191,12 @@ class ProfileCard extends HTMLElement {
                 </div>
                 
                 <div class="carousel">
-                    <button id="left-carousel-arrow"></button>
+                    <button id="left-carousel-arrow"><i class="fa-solid fa-circle-chevron-left"></i></button>
                     <div id="header">
                         <p>Groups</p>
                         <mini-group-card></mini-group-card>
                     </div>
-                    <button id="right-carousel-arrow"></button>
+                    <button id="right-carousel-arrow"><i class="fa-solid fa-circle-chevron-right"></i></button>
                 </div>
             
                 <button class="basic blue">Edit</button>
