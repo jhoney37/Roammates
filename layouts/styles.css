@@ -536,6 +536,9 @@ contact-card .resource-list a:hover {
     background-color: var(--light-grey);
     border-radius: 13px;
     width: 90vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .carousel #header {
@@ -555,6 +558,14 @@ contact-card .resource-list a:hover {
     width: 175px;
     margin-top: -10px;
     margin-bottom: 0.5rem;
+}
+
+.left-carousel-arrow {
+    left: -2.2rem;
+}
+
+.right-carousel-arrow {
+    right: -2.2rem;
 }
 
 #mini-group, #mini-group ul {
