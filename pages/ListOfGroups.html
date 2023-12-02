@@ -7,8 +7,9 @@
     <link href="../layouts/styles.css" rel="stylesheet" type="text/css" />
     <script src="../components/cards.js" type="text/javascript" defer></script>
     <script src="../components/navbar.js" type="text/javascript" defer></script>
+    <script src="../scripts/list-of-groups-page.js" type="text/javascript"></script>
 
-    <title><div List="" of="" Groups=""></div></title>
+    <title>Groups</title>
 
     <style>
         body {
@@ -20,7 +21,7 @@
         #columns-container {
             display: flex;
             justify-content: center;
-            align-items: flex-start; 
+            align-items: flex-start;
             width: 100%;
         }
 
@@ -29,10 +30,20 @@
             margin: 30px 0px;
         }
 
-        #posts-list {
-            display: block;
-            width: 40%;
-            margin-right: 2.5%;
+        #groups-list {
+            width: 45%;
+        }
+
+        #button-menu {
+            position: fixed;
+            margin-left: 60%;
+            margin-top: 5%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #button-menu > *:first-child {
+            margin-bottom: 1em;
         }
     </style>
 </head>
@@ -43,15 +54,17 @@
         <h1 id="title">[List of Groups]</h1>
     </header>
 
-    <div id="columns-container">
-        <div id="Group">
-            <group-card></group-card>
-            <group-card></group-card>
-            <group-card></group-card>
-            <group-card></group-card>
-            <group-card></group-card>
-            <group-card></group-card>
-        </div>
+    <div id="groups-list">
+        <group-card></group-card>
+        <group-card></group-card>
+        <group-card></group-card>
+        <group-card></group-card>
+        <group-card></group-card>
+        <group-card></group-card>
+    </div>
+    <div class="card" id="button-menu">
+        <button class="basic blue">Create a Group</button>
+        <button class="basic blue">My Groups</button>
     </div>
 </body>
 </html>

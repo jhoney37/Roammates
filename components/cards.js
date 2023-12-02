@@ -121,7 +121,7 @@ class GroupCard extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <div class="card" id="group">
-                <div class="text">
+                <div class="column" id="left">
                     <ul>
                         <li class="primary">Title</li>
                         <li class="secondary">Location</li>
@@ -135,11 +135,18 @@ class GroupCard extends HTMLElement {
                         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
                         eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
                         sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        <br><br>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
+                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
+                        eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                        sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </p>
-
-                    <button class="basic blue">Join</button>
-
+                </div>
+                <div class="column" id="right">
                     <img src="../assets/Profile Avatar.jpg" alt="">
+                    <button class="basic blue">Join</button>
                 </div>
             </div>
         `;
