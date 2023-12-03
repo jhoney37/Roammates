@@ -190,14 +190,7 @@ class ProfileCard extends HTMLElement {
 
                 </div>
                 
-                <div class="carousel">
-                    <button class="left carousel-arrow"><i class="fa-regular fa-circle-play fa-rotate-180"></i></i></button>
-                    <div id="header">
-                        <p>Groups</p>
-                        <mini-group-card></mini-group-card>
-                    </div>
-                    <button class="right carousel-arrow"><i class="fa-regular fa-circle-play"></i></button>
-                </div>
+                <carousel-card></carousel-card>
             
                 <button class="basic blue">Edit</button>
             </div>
@@ -205,6 +198,32 @@ class ProfileCard extends HTMLElement {
     }
 }
 customElements.define('profile-card', ProfileCard);
+
+
+// Carousel Card
+// ---------------
+// A carousel that allows users to view the groups they've joined on their profile page.
+class CarouselCard extends HTMLElement {
+    constructor() {
+        super();
+    }
+
+    connectedCallback() {
+        this.innerHTML = `
+            <div id="carousel">
+                <p>Groups</p>
+                <div id="container">
+                    <button class="carousel-arrow left"></button>
+                    <div id="content">
+                        <mini-group-card></mini-group-card>
+                    </div>
+                    <button class="carousel-arrow right"></button>
+                </div>
+            </div>
+        `;
+    }
+}
+customElements.define('carousel-card', CarouselCard);
 
 
 // Mini Group card

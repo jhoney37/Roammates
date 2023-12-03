@@ -473,46 +473,7 @@ expanded-post-card {
     opacity: 0.5;
 }
 
-
-
-/* heading */
-contact-card h1 {
-    color: #FFFFFF;
-}
-
-/* paragraph */
-contact-card p {
-    margin-top: 10px;
-}
-
-/* resource list */
-contact-card .resource-list {
-    list-style: none;
-    padding: 0;
-}
-
-/* resource list items */
-contact-card .resource-list li {
-    margin-bottom: 10px;
-}
-
-/* links in the resource list */
-contact-card .resource-list a {
-    color: #D67979; 
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* links on hover */
-contact-card .resource-list a:hover {
-    text-decoration: underline;
-}
-
-/*Profile Page Styles*/
-
-.primary, .secondary {
-    list-style: none;
-}
+/* Profile Card */
 
 #profile {
     display: flex;
@@ -548,25 +509,22 @@ contact-card .resource-list a:hover {
     border-radius: 13px;
 }
 
-.carousel {
+/* Carousel Card */
+
+#carousel {
     margin-top: 1.5rem;
     margin-bottom: 2.5rem;
     background-color: var(--light-grey);
-    border-radius: 13px;
     width: 90vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
 }
 
-.carousel #header {
+#carousel #header {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.carousel p {
+#carousel p {
     background-color: var(--black);
     text-align: center;
     border-radius: 13px;
@@ -577,6 +535,18 @@ contact-card .resource-list a:hover {
     width: 175px;
     margin-top: -10px;
     margin-bottom: 0.5rem;
+}
+
+#carousel #container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#carousel #content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .carousel-arrow {
@@ -595,6 +565,8 @@ contact-card .resource-list a:hover {
     position: absolute;
     left: 99%;
 }
+
+/* Mini-Group Card */
 
 #mini-group, #mini-group ul {
     display: flex;
@@ -619,37 +591,4 @@ contact-card .resource-list a:hover {
 
 #mini-group img {
     max-width: 100%;
-}
-
-/* Group Card */
-
-#group {
-    margin-bottom: 30px;
-    filter: brightness(1) drop-shadow(6px 6px 2px rgba(0, 0, 0, 1));
-    transition: all 0.2s;
-}
-
-#group:hover {
-    filter: brightness(120%) drop-shadow(6px 6px 2px rgba(0, 0, 0, 2));
-}
-
-#group ul {
-    list-style-type: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-#group li {
-    margin-right: 20px;
-}
-
-#group p {
-    margin-top: 5px;
-    margin-bottom: 0;
-    padding: 0;
-}
-
-#group .secondary {
-    opacity: 0.5;
 }
