@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang = "en">
 
 <head>
     <!-- From my understanding this is how you connect files to each other -->
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ url_for('static', filename='layouts/styles.css') }}" rel="stylesheet" type="text/css" />
-    <script src="{{ url_for('static', filename='components/cards.js') }}" type="text/javascript" defer></script>
-    <script src="{{ url_for('static', filename='components/navbar.js') }}" type="text/javascript" defer></script>
-    <script src="{{ url_for('static', filename='scripts/sign-in.js') }}" type="text/javascript" defer></script>
+    <meta charset= "UTF-8">
+    <meta name= "viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../layouts/styles.css" rel="stylesheet" type="text/css" /> 
+    <script src= "../components/cards.js" type="text/javascript" defer></script>
+    <script src= "../components/navbar.js" type="text/javascript" defer></script>
+    <script src= "../scripts/sign-in.js" type="text/javascript" defer></script>
 
     <title>Account Sign In</title>
 
@@ -20,19 +20,16 @@
                 filter: blur(1rem);
                 transform: translate3d(0, 8rem, 0);
             }
-
             15% {
                 opacity: 1;
                 filter: blur(0);
                 transform: translate3d(0, 0, 0);
             }
-
             85% {
                 opacity: 1;
                 filter: blur(0);
                 transform: translate3d(0, 0, 0);
             }
-
             100% {
                 opacity: 0;
                 filter: blur(1rem);
@@ -53,9 +50,7 @@
             margin: 0 1.5em;
         }
 
-        #sign-up,
-        #email-confirmation,
-        #terms-of-service {
+        #sign-up, #email-confirmation, #terms-of-service {
             display: none;
         }
     </style>
@@ -63,16 +58,16 @@
 
 <body>
     <!-- Added the display card for Sign In,
-    I did modify sign in's code to link to the sign-up code,
-    and linked the sign-up's code to the email confirmation code.
-    To do this I added event listeners in the sign-in.js file.
+    I did modify sign in's code to link to the sign up code, 
+    and linked the sign up's code to the email confirmation code.
+    To do this I added event listeners in the sign-in.js file. 
     i also changed the code for the 2 buttons but i believe apart from syntax functionality remains the same -->
-
+    
     <span id="roam">
-        <img src="{{ url_for('static', filename='assets/letters/R.png') }}" class="letter">
-        <img src="{{ url_for('static', filename='assets/letters/O.png') }}" class="letter">
-        <img src="{{ url_for('static', filename='assets/letters/A.png') }}" class="letter">
-        <img src="{{ url_for('static', filename='assets/letters/M.png') }}" class="letter">
+        <img src="../assets/letters/R.png" class="letter">
+        <img src="../assets/letters/O.png" class="letter">
+        <img src="../assets/letters/A.png" class="letter">
+        <img src="../assets/letters/M.png" class="letter">
     </span>
 
     <signin-card></signin-card>
@@ -81,11 +76,11 @@
     <terms-of-service-card></terms-of-service-card>
 
     <span id="mates">
-        <img src="{{ url_for('static', filename='assets/letters/M2.png') }}" class="letter">
-        <img src="{{ url_for('static', filename='assets/letters/A2.png') }}" class="letter">
-        <img src="{{ url_for('static', filename='assets/letters/T.png') }}" class="letter">
-        <img src="{{ url_for('static', filename='assets/letters/E.png') }}" class="letter">
-        <img src="{{ url_for('static', filename='assets/letters/S.png') }}" class="letter">
+        <img src="../assets/letters/M2.png" class="letter">
+        <img src="../assets/letters/A2.png" class="letter">
+        <img src="../assets/letters/T.png" class="letter">
+        <img src="../assets/letters/E.png" class="letter">
+        <img src="../assets/letters/S.png" class="letter">
     </span>
 </body>
 
