@@ -169,7 +169,7 @@ class ProfileCard extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <div class="card" id="profile">
-                <div class="profile-head">
+                <div id="profile-head">
                     <div class="text">
                         <ul>
                             <li class="primary">Name</li>
@@ -190,7 +190,10 @@ class ProfileCard extends HTMLElement {
 
                 </div>
                 
-                <carousel-card></carousel-card>
+                <div id="carousel-container">
+                    <p>Groups</p>
+                    <carousel-card></carousel-card>
+                </div>
             
                 <button class="basic blue">Edit</button>
             </div>
@@ -211,10 +214,11 @@ class CarouselCard extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <div id="carousel">
-                <p>Groups</p>
                 <div id="container">
                     <button class="carousel-arrow left"></button>
                     <div id="content">
+                        <mini-group-card></mini-group-card>
+                        <mini-group-card></mini-group-card>
                         <mini-group-card></mini-group-card>
                     </div>
                     <button class="carousel-arrow right"></button>

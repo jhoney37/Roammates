@@ -478,10 +478,12 @@ expanded-post-card {
 #profile {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    margin-bottom: 5%;
 }
 
-.profile-head {
+#profile-head {
     display: flex;
 }
 
@@ -493,38 +495,34 @@ expanded-post-card {
 }
 
 #profile .text .primary {
-    font-size: 30px;
+    font-size: 2.35em;
 }
 
 #profile .text .secondary, #profile .text p {
-    font-size: 20px;
+    font-size: 1.15em;
 }
 
 #profile .text .secondary {
     opacity: 50%;
 }
 
-#profile img {
-    max-width: 20%;
+#profile-head img {
+    min-width: 12rem;
+    min-height: 12rem;
+    width: 20%;
+    height: 20%;
     border-radius: 13px;
+    filter: brightness(1) drop-shadow(6px 6px 2px rgba(0, 0, 0, 0.75));
+    margin-left: 2em;
 }
 
-/* Carousel Card */
-
-#carousel {
-    margin-top: 1.5rem;
-    margin-bottom: 2.5rem;
-    background-color: var(--light-grey);
-    width: 90vw;
-}
-
-#carousel #header {
+#carousel-container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#carousel p {
+#carousel-container p {
     background-color: var(--black);
     text-align: center;
     border-radius: 13px;
@@ -533,8 +531,30 @@ expanded-post-card {
     align-items: center;
     height: 1.5rem;
     width: 175px;
-    margin-top: -10px;
-    margin-bottom: 0.5rem;
+    position: absolute;
+    z-index: 2;
+}
+
+/* Carousel Card */
+
+#carousel {
+    margin-top: 1.7rem;
+    margin-bottom: 2.5rem;
+    padding: 2em;
+    background-color: var(--light-grey);
+    border-radius: 2em;
+    filter: brightness(1) drop-shadow(6px 6px 2px rgba(0, 0, 0, 0.75));
+    overflow: auto;
+}
+
+#carousel::-webkit-scrollbar {
+    display: none;
+}
+
+#carousel #header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #carousel #container {
@@ -576,7 +596,8 @@ expanded-post-card {
 #mini-group {
     justify-content: center;
     align-items: center;
-    width: 250px;
+    width: 200px;
+    margin: 1em;
 }
 
 #mini-group ul {
@@ -591,4 +612,6 @@ expanded-post-card {
 
 #mini-group img {
     max-width: 100%;
+    border-radius: 16px;
+    filter: brightness(1) drop-shadow(6px 6px 2px rgba(0, 0, 0, 0.75));
 }
