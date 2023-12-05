@@ -11,7 +11,7 @@
     <script src= "../components/navbar.js" type="text/javascript" defer></script>
     <script src= "../scripts/sign-in.js" type="text/javascript" defer></script>
 
-    <title>Account Sign In</title>
+    <title>{% block title %}Account Sign In{% endblock %}</title>
 
     <style>
         @keyframes cross-fade-blur {
@@ -53,6 +53,7 @@
         #sign-up, #email-confirmation, #terms-of-service {
             display: none;
         }
+
     </style>
 </head>
 
@@ -62,7 +63,7 @@
     and linked the sign up's code to the email confirmation code.
     To do this I added event listeners in the sign-in.js file. 
     i also changed the code for the 2 buttons but i believe apart from syntax functionality remains the same -->
-    
+    {% block content %}
     <span id="roam">
         <img src="../assets/letters/R.png" class="letter">
         <img src="../assets/letters/O.png" class="letter">
@@ -82,6 +83,7 @@
         <img src="../assets/letters/E.png" class="letter">
         <img src="../assets/letters/S.png" class="letter">
     </span>
+    {% endblock %}
 </body>
 
 </html>
