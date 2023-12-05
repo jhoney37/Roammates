@@ -465,10 +465,12 @@ class TermsOfServiceCard extends HTMLElement {
                 
                 <div class="question">
                     <p>
-                        1. All of UNCC's Code of Conduct and integrity policies apply to this platform and must be 
+                        1. All of UNCC's policies apply to this platform and must be 
                         followed at all times. Failure to adhere to the University's policies will result in direct 
                         termination of your account. The UNCC Code Of Conduct can be found here:
                         <br><br>https://legal.charlotte.edu/policies/up-406<br><br>
+                        
+                        This and other policies will be located on the "Contact Us" page for reference at any time.
                         Do you agree to be aware of and follow all university policies?
                     </p>
                     <input type="checkbox" id="agree1" name="agree1" class="checkbox">
@@ -476,53 +478,37 @@ class TermsOfServiceCard extends HTMLElement {
 
                 <div class="question">
                     <p>
-                        2. This platform is designed for UNCC students. Therefore, all users of this platform can 
-                        access the campus resources such as CAPS, CIC, and SASS. Roammates and UNCC are facilitative 
-                        authorities, not responsible authorities. If you have any concerns contacting one of these 
-                        resources, use the "Contact Us" page to find them or contact us directly so that we can help 
-                        address your needs. Users of this platform must agree to take responsibility for their actions 
-                        and behavior in order to use it. Failure to do so will result in termination of your account. 
-                        Do you agree?
+                        2. The ONLY personal information that will be collected is your name, university email, and location.
+                        It will only be accessible to the employees of Roammates and UNCC. We will 
+                        not sell your information to third parties. Do you consent to data collection?
                     </p>
                     <input type="checkbox" id="agree2" name="agree2" class="checkbox">
                 </div>
 
                 <div class="question">
                     <p>
-                        3. The following personal data will be collected from all users in order to use this platform: 
-                        student information (name, university email), and location. All data collected will be kept 
-                        confidential and will only be accessed by the administrators of this website and UNCC. We will 
-                        not sell your information to third parties. Do you consent to data collection?
+                        3. Users can anonymously report any innapropriate behavior from other users in the "Contact Us" page. 
+                        Do you acknowledge this section?
                     </p>
                     <input type="checkbox" id="agree3" name="agree3" class="checkbox">
                 </div>
 
                 <div class="question">
                     <p>
-                        4. Users can report the inappropriate behavior of other users by using emailing the 
-                        administration and using the "Contact Us" page. Users can report safely and Roammates agrees 
-                        to keep any reported information confidential. Do you acknowledge this section?
+                        4. The administration of Roammates reserves the right to terminate any accounts that violate 
+                        our policies, terms, or conditions. Moderators will be monitoring forums for safety and etiquette. 
+                        Do you acknowledge this?
                     </p>
                     <input type="checkbox" id="agree4" name="agree4" class="checkbox">
                 </div>
 
                 <div class="question">
                     <p>
-                        5. The administration of Roammates reserves the right to terminate any accounts that violate 
-                        any previously stated policies, terms, or conditions. Moderators (employees of Roammates) will 
-                        be monitoring forums for safety and etiquette. Do you acknowledge this?
+                        5. These terms can be modified at any time and must be read and 
+                        accepted by users before continuing to use this platform. You will always be notified of any term changes.
+                        Do you agree to these terms?
                     </p>
                     <input type="checkbox" id="agree5" name="agree5" class="checkbox">
-                </div>
-
-                <div class="question">
-                    <p>
-                        6. The legal terms of service stated here can be modified at any time and must be read and 
-                        accepted by users before continuing to use this platform. Notifications regarding these 
-                        updates will take place in a pop-up box format on the website and must be acknowledged before 
-                        moving. Do you agree to these terms?
-                    </p>
-                    <input type="checkbox" id="agree6" name="agree6" class="checkbox">
                 </div>
 
                 <button type="button" id="confirm-terms" class="basic orange">Agree to Terms</button>
