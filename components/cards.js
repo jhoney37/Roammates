@@ -215,13 +215,13 @@ class CarouselCard extends HTMLElement {
         this.innerHTML = `
             <div id="carousel">
                 <div id="container">
-                    <button class="carousel-arrow left"></button>
+                    <button class="carousel-arrow left"><i class="fa-solid fa-circle-arrow-left fa-lg" style="color: #79d6d6;"></i></button>
                     <div id="content">
                         <mini-group-card></mini-group-card>
                         <mini-group-card></mini-group-card>
                         <mini-group-card></mini-group-card>
                     </div>
-                    <button class="carousel-arrow right"></button>
+                    <button class="carousel-arrow right"><i class="fa-solid fa-circle-arrow-right fa-lg" style="color: #79d6d6;"></i></button>
                 </div>
             </div>
         `;
