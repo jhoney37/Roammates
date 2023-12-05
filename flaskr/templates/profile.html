@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block head %}
+<style>
+    .primary, .secondary {
+            list-style: none;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        profile-card {
+            margin: 15%;
+            margin-top: 20rem;
+        }
+</style>
+{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+<custom-navbar></custom-navbar>
+
+<profile-card></profile-card>
+{% endblock %}
