@@ -91,17 +91,19 @@ class ContactCard extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <div class="card" id="contact">
-                <h1>Contact Us</h1>
-                <p>To contact us, please email: <a href="mailto:abc@gmail.com">abc@gmail.com</a></p>
-                
-                <div class="card resources">
+                <div id="our-contact">
+                    <h1>Contact Us</h1>
+                    <p>To contact us, please email: <br><a href="mailto:abc@gmail.com">abc@gmail.com</a></p>
+                </div>
+
+                <div id="resources">
                     <h1>University Resources</h1>
-                    
-                    <ul class="resource-list">
-                    <li><a href="https://caps.charlotte.edu/" target="_blank">Center for Counseling and Psychological Services</a></li>
-                    <li><a href="https://cic.charlotte.edu/" target="_blank">Center for Integrated Care</a></li>
-                    <li><a href="https://sass.charlotte.edu/" target="_blank">Student Assistance and Support Services</a></li>
-                </ul>
+
+                    <ul id="resource-list">
+                        <li><a href="https://caps.charlotte.edu/" target="_blank">Center for Counseling and Psychological Services</a></li>
+                        <li><a href="https://cic.charlotte.edu/" target="_blank">Center for Integrated Care</a></li>
+                        <li><a href="https://sass.charlotte.edu/" target="_blank">Student Assistance and Support Services</a></li>
+                    </ul>
                 </div>    
             </div>
         `;

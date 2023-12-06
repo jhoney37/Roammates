@@ -3,6 +3,8 @@
 {% block title %}Sign-in{% endblock %}
 
 {% block head %}
+<script src= "{{ url_for('static', filename='/scripts/sign-in.js') }}" type="text/javascript" defer></script>
+
 <style>
     @keyframes cross-fade-blur {
         0% {
@@ -46,14 +48,12 @@
 </style>
 {% endblock %}
 
-{% block header %}{% endblock %}
-
 {% block content %}
 <span id="roam">
-    <img src="../../assets/letters/R.png" class="letter">
-    <img src="../../assets/letters/O.png" class="letter">
-    <img src="../../assets/letters/A.png" class="letter">
-    <img src="../../assets/letters/M.png" class="letter">
+    <img src="{{ url_for('static', filename='/assets/letters/R.png') }}" class="letter">
+    <img src="{{ url_for('static', filename='/assets/letters/O.png') }}" class="letter">
+    <img src="{{ url_for('static', filename='/assets/letters/A.png') }}" class="letter">
+    <img src="{{ url_for('static', filename='/assets/letters/M.png') }}" class="letter">
 </span>
 
 <signin-card></signin-card>
@@ -62,10 +62,10 @@
 <terms-of-service-card></terms-of-service-card>
 
 <span id="mates">
-    <img src="../../assets/letters/M2.png" class="letter">
-    <img src="../../assets/letters/A2.png" class="letter">
-    <img src="../../assets/letters/T.png" class="letter">
-    <img src="../../assets/letters/E.png" class="letter">
-    <img src="../../assets/letters/S.png" class="letter">
+    <img src="{{ url_for('static', filename='/assets/letters/M2.png') }}" class="letter">
+    <img src="{{ url_for('static', filename='/assets/letters/A2.png') }}" class="letter">
+    <img src="{{ url_for('static', filename='/assets/letters/T.png') }}" class="letter">
+    <img src="{{ url_for('static', filename='/assets/letters/E.png') }}" class="letter">
+    <img src="{{ url_for('static', filename='/assets/letters/S.png') }}" class="letter">
 </span>
 {% endblock %}
