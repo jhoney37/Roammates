@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% from 'components.html' import navbar, contact_card, group_card %}
 
 {% block title %}Groups{% endblock %}
 
@@ -40,22 +41,22 @@
 {% endblock %}
 
 {% block content %}
-<custom-navbar></custom-navbar>
-<contact-card></contact-card>
+{{ navbar() }}
+{{ contact_card() }}
 
 <header>
     <h1 id="title">Groups</h1>
 </header>
 
 <div id="groups-list">
-    <group-card></group-card>
-    <group-card></group-card>
-    <group-card></group-card>
-    <group-card></group-card>
-    <group-card></group-card>
-    <group-card></group-card>
+    {{ group_card() }}
+    {{ group_card() }}
+    {{ group_card() }}
+    {{ group_card() }}
+    {{ group_card() }}
+    {{ group_card() }}
 </div>
 <div class="card" id="button-menu">
-    <button class="basic blue">My Groups</button>
+    <button class="basic blue mine" id="my-groups">My Groups</button>
 </div>
 {% endblock %}

@@ -1,0 +1,441 @@
+<!-- 
+    Navbar
+    -----------
+    Used for displaying another user's info in a small button-like window
+ -->
+{% macro navbar() -%}
+    <nav>
+        <img id="logo" src="{{ url_for('static', filename='/assets/Roammates Logo.png') }}" alt="">
+        <ul>
+            <li><a href="listOfGroups.html"><button class="banner"><img src="" alt="">Home</button></a></li>
+            <li><a href="profile.html"><button class="banner"><img src="" alt="">Profile</button></a></li>
+            <li><button id="contact-button" class="banner"><img src="" alt="">Contact Us</button></li>
+            <li><a href=""><button class="banner"><img src="" alt="">Sign Out</button></a></li>
+        </ul>
+    </nav>
+{%- endmacro %}
+
+
+<!-- 
+    Member Card
+    -----------
+    Used for displaying another user's info in a small button-like window
+ -->
+{% macro member_card(color) -%}
+<div id="member-container">
+    <div class="card {{ color }}" id="member">
+        <div id="name-pronouns">
+            <p>Name</p>
+            <p>Pronouns</p>
+        </div>
+        <div id="avatar">
+            <img src="{{ url_for('static', filename='/assets/Profile Avatar.jpg') }}" alt="">
+        </div>
+    </div>
+</div>
+{%- endmacro %}
+
+
+<!-- 
+    Members List Card
+    -----------
+    A compact list of users who are currently in a group
+ -->
+{% macro member_list_card() -%}
+<div>
+    <div class="card" id="member-list">
+        <h1>Members</h1>
+        {{ member_card('green') }}
+        {{ member_card('purple') }}
+        {{ member_card('pink') }}
+        {{ member_card('red') }}
+    </div>
+</div>
+{%- endmacro %}
+
+
+<!-- 
+    Profile Setup card
+    ------------------
+    Displays after successfully verifying email in the sign-up section
+    Information gets stored under the user's profile information
+ -->
+{% macro profile_setup_card() -%}
+    <div class = "card" id="profile-setup">
+        <h1>Set Up Your Profile</h1>
+        <div class="profile-picture">
+            <p>Upload an Avatar</p>
+            <img src="" alt="">
+        </div>
+
+        <h1>What is your name?</h1>
+        <form>
+            <input type="text" id="name" name="name" class="input-field" required>
+            <button type="submit" class="basic blue">Next</button>
+        </form>
+
+        <button class="basic orange">Skip</button>
+    </div>
+{%- endmacro %}
+
+
+<!-- 
+    Contact card
+    ------------
+    Basic area for displaying information on school resources, where to contact us, etc.
+ -->
+{% macro contact_card() -%}
+    <div class="card" id="contact">
+        <div id="our-contact">
+            <h1>Contact Us</h1>
+            <p>To contact us, please email: <br><a href="mailto:abc@gmail.com">abc@gmail.com</a></p>
+        </div>
+
+        <div id="resources">
+            <h1>University Resources</h1>
+
+            <ul id="resource-list">
+                <li><a href="https://caps.charlotte.edu/" target="_blank">Center for Counseling and Psychological Services</a></li>
+                <li><a href="https://cic.charlotte.edu/" target="_blank">Center for Integrated Care</a></li>
+                <li><a href="https://sass.charlotte.edu/" target="_blank">Student Assistance and Support Services</a></li>
+            </ul>
+        </div>    
+    </div>
+{%- endmacro %}
+
+
+<!-- 
+    Group card
+    ----------
+    Displays a group's summary for the 'list of groups' page
+ -->
+{% macro group_card() -%}
+    <div class="card" id="group">
+        <div class="column" id="left">
+            <ul>
+                <li class="primary">Title</li>
+                <li class="secondary">Location</li>
+                <li class="secondary"># of Members</li>
+            </ul>
+
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
+                nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
+                eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                sunt in culpa qui officia deserunt mollit anim id est laborum.
+                <br><br>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
+                nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
+                eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </div>
+        <div class="column" id="right">
+            <img src="{{ url_for('static', filename='/assets/Group Avatar.png') }}" alt="">
+            <button class="basic blue">Join</button>
+        </div>
+    </div>
+{%- endmacro %}
+
+
+<!-- 
+    Profile card
+    ------------
+    Displays the user's profile information such as their name, pronouns, avatar, and also contains a 
+    carousel for displaying their active groups
+ -->
+{% macro profile_card() -%}
+    <div class="card" id="profile">
+        <div id="profile-head">
+            <div class="text">
+                <ul>
+                    <li class="primary">Name</li>
+                    <li class="secondary">Pronouns</li>
+                </ul>
+        
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
+                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
+                    eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                    sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            </div>
+        
+            <img src="{{ url_for('static', filename='assets/Profile Avatar.jpg') }}" alt="Profile Avatar">
+
+        </div>
+        
+        <div id="carousel-container">
+            <p>Groups</p>
+            {{ carousel_card() }}
+        </div>
+
+        <button class="basic blue">Edit</button>
+    </div>
+{%- endmacro %}
+
+
+<!-- 
+    Carousel Card
+    ---------------
+    A carousel that allows users to view the groups they've joined on their profile page.
+ -->
+{% macro carousel_card() -%}
+    <div id="carousel">
+        <div id="container">
+            <button id="carousel-left"><i class="fa-solid fa-circle-arrow-left fa-lg" style="color: #79d6d6;"></i></button>
+            <div id="content">
+                {{ mini_group_card() }}
+                {{ mini_group_card() }}
+                {{ mini_group_card() }}
+                {{ mini_group_card() }}
+                {{ mini_group_card() }}
+                {{ mini_group_card() }}
+            </div>
+            <button id="carousel-right"><i class="fa-solid fa-circle-arrow-right fa-lg" style="color: #79d6d6;"></i></button>
+        </div>
+    </div>
+{%- endmacro %}
+
+
+<!-- 
+    Mini Group card
+    ---------------
+    A miniature version of the group card to be used in the profile carousel
+ -->
+{% macro mini_group_card() -%}
+    <div>
+        <div class="card" id="mini-group">
+            <ul>
+                <li class="primary">Title</li>
+                <li class="primary">Location</li>
+            </ul>
+
+            <img src="{{ url_for('static', filename='assets/Group Avatar.png') }}" alt="Group Avatar">
+        </div>
+    </div>
+{%- endmacro %}
+
+
+<!-- 
+    Sign-in Card
+    ------------
+    Allows the user to sign in with a username/password form
+    Contains a button to go to the sign-up screen/card
+ -->
+{% macro sign_in_card() -%}
+    <div class="card" id="sign-in" style="text-align: center;">
+        <h1>Welcome</h1>
+        <form>
+            <label for="username">Username:</label > <br>
+            <input type="text" id="signin-username" name="username" class="input-field"> <br>
+
+            <label for="password">Password:</label> <br>
+            <input type="password" id="signin-password" name="password" class="input-field"> <br>
+            
+            <button type="submit" class="basic blue" id="signin-button">Sign in</button>
+        </form>
+        <p class="sub-primary">Don't have an account?</p>
+        <button type="button" id="signup-button" class="basic orange">Sign up</button>
+    </div>
+{%- endmacro %}
+
+
+<!-- 
+    Sign-up card
+    ------------
+    Allows the user to fill out a form for sign-up
+ -->
+{% macro sign_up_card() -%}
+<div class="card" id="sign-up" style="text-align: center;">
+    <h1>Sign up</h1>
+    <form>
+        <label for="username">Username:</label> <br>
+        <input type="text" id="signup-username" name="username" class="input-field"> <br>
+
+        <label for="signup-password">Password:</label> <br>
+        <input type="password" id="signup-password" name="signup-password" class="input-field"> <br>
+
+        <label for="email">UNCC Email:</label> <br>
+        <input type="text" id="signup-email" name="email" class="input-field"> <br>
+        
+        <button type="button" id="confirm-button" class="basic orange">Confirm</button>
+    </form>
+</div>
+{%- endmacro %}
+
+
+<!-- 
+    Email Confirmation card
+    -----------------------
+    Sends the user a confirmation code to their email and allows user to input it into a form to 
+    confirm their UNCC address
+ -->
+{% macro email_confirmation_card() -%}
+    <div class="card" id="email-confirmation" style="text-align: center;"> 
+        <p class="sub-primary">A confirmation has been<br>
+        sent to your email.</p>
+        <p class="sub-primary">Please type in the<br>
+        confirmation code below.</p> <br>
+        <!-- Add the id attribute to the form for the event listener -->
+        <form id="email-confirmation-form">
+            <input type="text" id="cnfrm-email" name="cnfrm-email" class="input-field"> <br>
+            <button type="submit" class="basic orange" id="submit-confirmation">Next</button>
+        </form>
+    </div>
+{%- endmacro %}
+
+
+<!-- 
+    Expanded Post card
+    ---------
+    An expanded view of a post that shows a scrollable list of the comments as well as the user that posted
+ -->
+{% macro expanded_post_card() -%}
+    <div id="expanded-container">
+        <div class="card" id="expanded-post">
+            <div id="original-post">
+                <div id="post-header">
+                    <h1>Title</h1>
+                    <h2>Date Posted</h2>
+                    {{ member_card('green') }}
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
+                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
+                    eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                    sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            </div>
+            <hr>
+            {{ comment_card('purple') }}
+            {{ comment_card('pink') }}
+            {{ comment_card('red') }}
+            {{ comment_card('green') }}
+            {{ comment_card('purple') }}
+            <button class="basic blue">Reply</button>
+        </div>
+    </div>
+{%- endmacro %}
+
+
+<!-- 
+    Comment card
+    ------------
+    For use in expanded post card
+    Displays a user's member card, the date posted, and the comment that they typed
+ -->
+{% macro comment_card(color) -%}
+    <div>
+        <div class="card" id="comment">
+            <div id="comment-header">
+                {{ member_card(color) }}
+                <h2>Date Posted</h2>
+            </div>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
+                nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
+                eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </div>
+    </div>
+{%- endmacro %}
+
+
+<!-- 
+    Post card
+    ------------
+    Displays a concise version of a post from a group
+ -->
+{% macro post_card() -%}
+    <div>
+        <div class="card" id="post">
+            <ul>
+                <li class="primary">Title</li>
+                <li class="secondary">Author</li>
+                <li class="secondary">Date Posted</li>
+            </ul>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
+                nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
+                eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </div>
+    </div>
+{%- endmacro %}
+
+
+<!-- 
+    Terms of Service Card
+    ---------------------
+    A scrollable checkbox list that states the potential dangers for the user in operating the site
+ -->
+{% macro terms_card() -%}
+<div class="card" id="terms-of-service" style="text-align: center;">
+    <h1>Terms of Service</h1>
+    
+    <div class="question">
+        <p>
+            1. All of UNCC's policies apply to this platform and must be 
+            followed at all times. Failure to adhere to the University's policies will result in direct 
+            termination of your account. The UNCC Code Of Conduct can be found here:
+            <br><br>https://legal.charlotte.edu/policies/up-406<br><br>
+            
+            This and other policies will be located on the "Contact Us" page for reference at any time.
+            Do you agree to be aware of and follow all university policies?
+        </p>
+        <input type="checkbox" id="agree1" name="agree1" class="checkbox">
+    </div>
+
+    <div class="question">
+        <p>
+            2. The ONLY personal information that will be collected is your name, university email, and location.
+            It will only be accessible to the employees of Roammates and UNCC. We will 
+            not sell your information to third parties. Do you consent to data collection?
+        </p>
+        <input type="checkbox" id="agree2" name="agree2" class="checkbox">
+    </div>
+
+    <div class="question">
+        <p>
+            3. Users can anonymously report any innapropriate behavior from other users in the "Contact Us" page. 
+            Do you acknowledge this section?
+        </p>
+        <input type="checkbox" id="agree3" name="agree3" class="checkbox">
+    </div>
+
+    <div class="question">
+        <p>
+            4. The administration of Roammates reserves the right to terminate any accounts that violate 
+            our policies, terms, or conditions. Moderators will be monitoring forums for safety and etiquette. 
+            Do you acknowledge this?
+        </p>
+        <input type="checkbox" id="agree4" name="agree4" class="checkbox">
+    </div>
+
+    <div class="question">
+        <p>
+            5. These terms can be modified at any time and must be read and 
+            accepted by users before continuing to use this platform. You will always be notified of any term changes.
+            Do you agree to these terms?
+        </p>
+        <input type="checkbox" id="agree5" name="agree5" class="checkbox">
+    </div>
+
+    <button type="button" id="confirm-terms" class="basic orange">Agree to Terms</button>
+</div>
+{%- endmacro %}

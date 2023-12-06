@@ -139,6 +139,22 @@ nav a {
     display: none;
 }
 
+.green {
+    background-color: var(--green);
+}
+
+.purple {
+    background-color: var(--purple);
+}
+
+.pink {
+    background-color: var(--pink);
+}
+
+.red {
+    background-color: var(--red);
+}
+
 /* Post Card */
 
 #post {
@@ -229,7 +245,7 @@ nav a {
 
 /* Expanded Post Card */
 
-expanded-post-card {
+#expanded-container {
     width: 80%;
     display: flex;
     justify-content: center;
@@ -271,7 +287,7 @@ expanded-post-card {
     margin-bottom: 10px;
 }
 
-#post-header member-card {
+#post-header #member-container {
     margin-left: auto;
     padding-bottom: 0.2em;
 }
@@ -320,22 +336,6 @@ expanded-post-card {
     margin-top: 10px;
     opacity: 0.5;
     font-size: small;
-}
-
-#comment.green #member {
-    background-color: var(--green);
-}
-
-#comment.purple #member {
-    background-color: var(--purple);
-}
-
-#comment.pink #member {
-    background-color: var(--pink);
-}
-
-#comment.red #member {
-    background-color: var(--red);
 }
 
 /* Sign-in Card */
@@ -562,7 +562,7 @@ expanded-post-card {
 #carousel #content {
     display: flex;
     scroll-behavior: smooth;
-    overflow: auto;
+    overflow: scroll;
     scroll-snap-type: x mandatory;
     -ms-overflow-style: none;
     scrollbar-width: 0;

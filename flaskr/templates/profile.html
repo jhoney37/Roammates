@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
+{% from 'components.html' import navbar, contact_card, profile_card %}
 
 {% block title %}Profile{% endblock %}
 
 {% block head %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 <script src="{{ url_for('static', filename='/scripts/carousel.js') }}" type="text/javascript" defer></script>
 <script src="{{ url_for('static', filename='/scripts/contact.js') }}" type="text/javascript" defer></script>
 
@@ -20,7 +22,7 @@
         margin: 0;
     }
 
-    profile-card {
+    #profile {
         margin: 15%;
         margin-top: 20rem;
     }
@@ -28,8 +30,8 @@
 {% endblock %}
 
 {% block content %}
-<custom-navbar></custom-navbar>
-<contact-card></contact-card>
+{{ navbar() }}
+{{ contact_card() }}
 
-<profile-card></profile-card>
+{{ profile_card() }}
 {% endblock %}

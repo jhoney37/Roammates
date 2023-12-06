@@ -1,6 +1,7 @@
 # 📁 server.py -----
 
 import json
+import os
 from os import environ as env
 from urllib.parse import quote_plus, urlencode
 
@@ -18,6 +19,7 @@ if ENV_FILE:
 # configures flask
 app = Flask(__name__)
 app.secret_key = env.get("APP_SECRET_KEY")
+app.database = os.path.join(app.instance_path, 'flaskr.sqlite')
 
 
 # configures auth0
@@ -71,7 +73,7 @@ def logout():
 # home
 @app.route("/")
 def sign_in():
-    return render_template("profile.html", session=session.get('user'), pretty=json.dumps(session.get('user'), indent=4))
+    return render_template("listOfGroups.html", session=session.get('user'), pretty=json.dumps(session.get('user'), indent=4))
 
 
 # instantiates server

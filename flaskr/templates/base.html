@@ -4,10 +4,8 @@
 <head>
     <meta charset= "UTF-8">
     <meta name= "viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ url_for('static', filename='/layouts/styles.css') }}" rel="stylesheet" type="text/css" /> 
-    <script src= "{{ url_for('static', filename='/components/cards.js') }}" type="text/javascript" defer></script>
-    <script src= "{{ url_for('static', filename='/components/navbar.js') }}" type="text/javascript" defer></script>
-
+    <link href="{{ url_for('static', filename='/layouts/styles.css') }}" rel="stylesheet" type="text/css" />
+    
     <title>{% block title %}{% endblock %}</title>
 
     {% block head %}{% endblock %}
