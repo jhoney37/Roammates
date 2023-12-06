@@ -544,6 +544,7 @@ expanded-post-card {
     background-color: var(--light-grey);
     border-radius: 2em;
     filter: brightness(1) drop-shadow(6px 6px 2px rgba(0, 0, 0, 0.75));
+    width: 55em;
 }
 
 #carousel #header {
@@ -555,13 +556,13 @@ expanded-post-card {
 #carousel #container {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 #carousel #content {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center;
+    align-items: center; */
     scroll-behavior: smooth;
     overflow: auto;
     scroll-snap-type: x mandatory;
@@ -573,23 +574,23 @@ expanded-post-card {
     scroll-snap-align: center;
 }
 
-#carousel::-webkit-scrollbar {
+#carousel #content::-webkit-scrollbar {
     display: none;
 }
 
-.carousel-arrow {
+#carousel-right, #carousel-left {
     background: transparent;
     border: none;
     color: var(--orange);
     font-size: 1.4rem;
 }
 
-.carousel-arrow.left {
+#carousel-left {
     position: absolute;
     right: 99%;
 }
 
-.carousel-arrow.right {
+#carousel-right {
     position: absolute;
     left: 99%;
 }
