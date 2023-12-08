@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% from 'components.html' import navbar, contact_card, sign_in_card, terms_card %}
 
 {% block title %}Sign-in{% endblock %}
 
@@ -58,11 +59,8 @@
     <img src="{{ url_for('static', filename='/assets/letters/M.png') }}" class="letter">
 </span>
 
-<signin-card></signin-card>
-<signup-card></signup-card>
-<email-confirmation-card></email-confirmation-card>
-<terms-of-service-card></terms-of-service-card>
-<profile-setup-card></profile-setup-card>
+{{ sign_in_card(error) }}
+{{ terms_card() }}
 
 <span id="mates">
     <img src="{{ url_for('static', filename='/assets/letters/M2.png') }}" class="letter">

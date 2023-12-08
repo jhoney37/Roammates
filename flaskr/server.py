@@ -5,22 +5,21 @@ import os
 from os import environ as env
 from urllib.parse import quote_plus, urlencode
 
+import werkzeug.exceptions
 from authlib.integrations.flask_client import OAuth
+from authlib.integrations.base_client import errors
 from dotenv import find_dotenv, load_dotenv
 from flask import Flask, redirect, render_template, session, url_for
-
 
 # loads env
 ENV_FILE = find_dotenv()
 if ENV_FILE:
     load_dotenv(ENV_FILE)
 
-
 # configures flask
 app = Flask(__name__)
 app.secret_key = env.get("APP_SECRET_KEY")
 app.database = os.path.join(app.instance_path, 'flaskr.sqlite')
-
 
 # configures auth0
 oauth = OAuth(app)
@@ -40,17 +39,18 @@ oauth.register(
 # login
 @app.route("/login")
 def login():
-    return oauth.auth0.authorize_redirect(
-        redirect_uri=url_for("callback", _external=True)
-    )
+    return oauth.auth0.authorize_redirect(redirect_uri=url_for("callback", _external=True))
 
 
-# callback - returns user to application after beng authenticated
+# callback - returns user to application after being authenticated
 @app.route("/callback", methods=["GET", "POST"])
 def callback():
-    token = oauth.auth0.authorize_access_token()
-    session["user"] = token
-    return redirect("/")
+    try:
+        token = oauth.auth0.authorize_access_token()
+        session["user"] = token
+        return redirect("/groupsList")
+    except errors.OAuthError:
+        return render_template("/login.html", error='Please verify your email before signing in.')
 
 
 # logout
@@ -62,7 +62,7 @@ def logout():
         + "/v2/logout?"
         + urlencode(
             {
-                "returnTo": url_for("sign_in", _external=True),
+                "returnTo": url_for("/", _external=True),
                 "client_id": env.get("AUTH0_CLIENT_ID"),
             },
             quote_via=quote_plus,
@@ -72,8 +72,32 @@ def logout():
 
 # home
 @app.route("/")
-def sign_in():
-    return render_template("signIn.html", session=session.get('user'), pretty=json.dumps(session.get('user'), indent=4))
+def login_page():
+    if session is None:
+        return render_template("login.html")
+    else:
+        return redirect("/groupsList")
+
+
+@app.route("/groupsList")
+def groups_list():
+    return render_template("groupsList.html",
+                           session=session.get('user'),
+                           pretty=json.dumps(session.get('user'), indent=4))
+
+
+@app.route("/profile")
+def profile():
+    return render_template("profile.html",
+                           session=session.get('user'),
+                           pretty=json.dumps(session.get('user'), indent=4))
+
+
+@app.route("/group")
+def group():
+    return render_template("group.html",
+                           session=session.get('user'),
+                           pretty=json.dumps(session.get('user'), indent=4))
 
 
 # instantiates server

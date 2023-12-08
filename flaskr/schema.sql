@@ -1,8 +1,5 @@
 CREATE TABLE IF NOT EXISTS Users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    username TEXT UNIQUE NOT NULL,
-    password TEXT NOT NULL,
-    email TEXT NOT NULL,
     created_at TEXT NOT NULL,
     name TEXT,
     pronouns TEXT,
@@ -12,10 +9,10 @@ CREATE TABLE IF NOT EXISTS Users (
 
 CREATE TABLE IF NOT EXISTS Posts (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
+    created_at TEXT NOT NULL,
     author INTEGER NOT NULL,
     title TEXT NOT NULL,
     content TEXT,
-    created_at TEXT NOT NULL,
     FOREIGN KEY(author) REFERENCES Users(id)
 );
 
@@ -33,7 +30,8 @@ CREATE TABLE IF NOT EXISTS Groups (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     title TEXT NOT NULL,
     location TEXT,
-    description TEXT
+    description TEXT,
+    avatar BLOB
 );
 
 CREATE TABLE IF NOT EXISTS GroupMembers (

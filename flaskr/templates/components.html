@@ -231,21 +231,19 @@
     Allows the user to sign in with a username/password form
     Contains a button to go to the sign-up screen/card
  -->
-{% macro sign_in_card() -%}
-<div class="card" id="sign-in" style="text-align: center;">
-    <h1>Welcome</h1>
-    <form>
-        <label for="username">Username:</label> <br>
-        <input type="text" id="signin-username" name="username" class="input-field"> <br>
+{% macro sign_in_card(error) -%}
+    <div>
+        <div class="card" id="sign-in" style="text-align: center;">
+            <h1>Welcome</h1>
 
-        <label for="password">Password:</label> <br>
-        <input type="password" id="signin-password" name="password" class="input-field"> <br>
-
-        <button type="submit" class="basic blue" id="signin-button">Sign in</button>
-    </form>
-    <p class="sub-primary">Don't have an account?</p>
-    <button type="button" id="signup-button" class="basic orange">Sign up</button>
-</div>
+            <p class="sub-primary">You will need a UNC Charlotte<br>email address in order to proceed.</p>
+            <p class="sub-primary">Sign in or sign up here.</p>
+            {% if error %}
+            <p class="sub-primary" style="color: #D6A079;">{{ error }}</p>
+            {% endif %}
+            <a href="/login"><button type="submit" class="basic blue" id="signin-button">Sign in</button></a>
+        </div>
+    </div>
 {%- endmacro %}
 
 
