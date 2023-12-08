@@ -73,7 +73,7 @@ def logout():
 # home
 @app.route("/")
 def sign_in():
-    return render_template("listOfGroups.html", session=session.get('user'), pretty=json.dumps(session.get('user'), indent=4))
+    return render_template("signIn.html", session=session.get('user'), pretty=json.dumps(session.get('user'), indent=4))
 
 
 # instantiates server
