@@ -30,8 +30,14 @@
 {% endblock %}
 
 {% block content %}
+
+{% if terms %}
+    showTermsOfService();
+{% endif %}
+
 {{ navbar() }}
 {{ contact_card() }}
 
 {{ profile_card() }}
+{{ terms_card() }}
 {% endblock %}

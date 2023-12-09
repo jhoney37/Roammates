@@ -44,10 +44,6 @@
     .card {
         margin: 0 1.5em;
     }
-
-    #sign-up, #email-confirmation, #terms-of-service {
-        display: none;
-    }
 </style>
 {% endblock %}
 
@@ -59,8 +55,11 @@
     <img src="{{ url_for('static', filename='/assets/letters/M.png') }}" class="letter">
 </span>
 
-{{ sign_in_card(error) }}
-{{ terms_card() }}
+{% if terms %}
+    {{ terms_card() }}
+{% else %}
+    {{ sign_in_card(error) }}
+{% endif %}
 
 <span id="mates">
     <img src="{{ url_for('static', filename='/assets/letters/M2.png') }}" class="letter">

@@ -1,6 +1,7 @@
 CREATE TABLE IF NOT EXISTS Users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     created_at TEXT NOT NULL,
+    email TEXT NOT NULL,
     name TEXT,
     pronouns TEXT,
     bio TEXT,

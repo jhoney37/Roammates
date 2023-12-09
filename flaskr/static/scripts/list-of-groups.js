@@ -1,5 +1,3 @@
-console.log("Yes!");
-
 document.addEventListener("DOMContentLoaded", function() {
     var joinButtons = document.querySelectorAll('.basic.blue');
 

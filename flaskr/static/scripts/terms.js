@@ -7,8 +7,7 @@ checkboxes.forEach(checkbox => {
 // Add event listener for the "Agree to Terms" button
 document.getElementById('confirm-terms').addEventListener('click', function () {
     if (areAllCheckboxesChecked()) {
-        // Add logic to navigate to the next page or perform other actions
-        alert('GO TO PROFILE SETUP -- will connect it later');
+        {{ checked }}
     } else {
         alert('All terms must be agreed upon to continue.');
     }

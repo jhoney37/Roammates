@@ -10,7 +10,7 @@
         <li><a href="listOfGroups.html"><button class="banner"><img src="" alt="">Home</button></a></li>
         <li><a href="profile.html"><button class="banner"><img src="" alt="">Profile</button></a></li>
         <li><button id="contact-button" class="banner"><img src="" alt="">Contact Us</button></li>
-        <li><a href=""><button class="banner"><img src="" alt="">Sign Out</button></a></li>
+        <li><a href="/server/logout"><button class="banner"><img src="" alt="">Sign Out</button></a></li>
     </ul>
 </nav>
 {%- endmacro %}
@@ -241,54 +241,9 @@
             {% if error %}
             <p class="sub-primary" style="color: #D6A079;">{{ error }}</p>
             {% endif %}
-            <a href="/login"><button type="submit" class="basic blue" id="signin-button">Sign in</button></a>
+            <a href="/server/login"><button type="submit" class="basic blue" id="signin-button">Sign in</button></a>
         </div>
     </div>
-{%- endmacro %}
-
-
-<!-- 
-    Sign-up card
-    ------------
-    Allows the user to fill out a form for sign-up
- -->
-{% macro sign_up_card() -%}
-<div class="card" id="sign-up" style="text-align: center;">
-    <h1>Sign up</h1>
-    <form>
-        <label for="username">Username:</label> <br>
-        <input type="text" id="signup-username" name="username" class="input-field"> <br>
-
-        <label for="signup-password">Password:</label> <br>
-        <input type="password" id="signup-password" name="signup-password" class="input-field"> <br>
-
-        <label for="email">UNCC Email:</label> <br>
-        <input type="text" id="signup-email" name="email" class="input-field"> <br>
-
-        <button type="button" id="confirm-button" class="basic orange">Confirm</button>
-    </form>
-</div>
-{%- endmacro %}
-
-
-<!-- 
-    Email Confirmation card
-    -----------------------
-    Sends the user a confirmation code to their email and allows user to input it into a form to 
-    confirm their UNCC address
- -->
-{% macro email_confirmation_card() -%}
-<div class="card" id="email-confirmation" style="text-align: center;">
-    <p class="sub-primary">A confirmation has been<br>
-        sent to your email.</p>
-    <p class="sub-primary">Please type in the<br>
-        confirmation code below.</p> <br>
-    <!-- Add the id attribute to the form for the event listener -->
-    <form id="email-confirmation-form">
-        <input type="text" id="cnfrm-email" name="cnfrm-email" class="input-field"> <br>
-        <button type="submit" class="basic orange" id="submit-confirmation">Next</button>
-    </form>
-</div>
 {%- endmacro %}
 
 
@@ -316,15 +271,9 @@
             </p>
         </div>
         <!-- Reply container -->
-        <div id="reply-container">
-            <!-- Reply cards will be appended here dynamically -->
+        <div id="reply-container" style="display: none;">
+            {{ reply_card() }}
         </div>
-        <!-- Reply card -->
-        <div id="reply-card" style="display: none;">
-            {{ reply_card('purple') }}
-            <button class="basic blue" id="cancel-reply-button">Cancel</button>
-        </div>
-        <button class="basic blue" id="reply-button">Reply</button>
         <hr>
         {{ comment_card('purple') }}
         {{ comment_card('pink') }}
@@ -332,8 +281,7 @@
         {{ comment_card('green') }}
         {{ comment_card('purple') }}
 
-        <!--commenting out for now 
-            <button class="basic blue">Reply</button> -->
+        <button class="basic blue">Reply</button>
     </div>
 </div>
 {%- endmacro %}
@@ -470,6 +418,6 @@
         <input type="checkbox" id="agree5" name="agree5" class="checkbox">
     </div>
 
-    <button type="button" id="confirm-terms" class="basic orange">Agree to Terms</button>
+    <a href="/server/add_user"><button type="button" id="confirm-terms" class="basic orange">Agree to Terms</button></a>
 </div>
 {%- endmacro %}
