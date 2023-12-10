@@ -6,6 +6,7 @@
 {% block head %}
 <script src="{{ url_for('static', filename='/scripts/group.js') }}" type="text/javascript"></script>
 <script src="{{ url_for('static', filename='/scripts/contact.js') }}" type="text/javascript" defer></script>
+<script src="{{ url_for('static', filename='/scripts/join-buttons.js') }}" type="text/javascript" defer></script>
 
 <style>
     body {
@@ -70,18 +71,8 @@
 
 <div class="columns-container">
     <div class="posts-list">
-        {% for i in range(posts | length) %}
-            {{ 
-                post_card(
-                    posts[i][0], 
-                    posts[i][1], 
-                    posts[i][2], 
-                    posts[i][3], 
-                    posts[i][4], 
-                    posts[i][5], 
-                    posts[i][6]
-                ) 
-            }}
+        {% for post in posts %}
+            {{ post_card(post) }}
         {% endfor %}
     </div>
     <div class="member-list-container">
