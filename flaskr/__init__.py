@@ -28,6 +28,13 @@ def create_app(test_config=None):
     app.register_blueprint(server.bp)
     app.add_url_rule('/', endpoint='server.login_page')
 
+    @app.context_processor
+    def utility_functions():
+        def print_in_console(message):
+            print(str(message))
+
+        return dict(mdebug=print_in_console)
+
     return app
 
 

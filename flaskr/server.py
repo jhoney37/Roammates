@@ -187,6 +187,7 @@ def profile():
 @bp.route("/<int:group_id>/group", methods=['GET', 'POST'])
 def group(group_id):
     db = get_db()
+    db.row_factory = sqlite3.Row
 
     group_info = db.execute(
         """
@@ -198,9 +199,19 @@ def group(group_id):
 
     posts = db.execute(
         """
-        SELECT *
-        FROM Posts
-        WHERE group_id = ?
+        SELECT
+            Posts.id AS post_id,
+            Posts.title,
+            Posts.content,
+            Posts.created_at,
+            Users.name AS author_name,
+            Users.color AS author_color,
+            Users.pronouns AS author_pronouns
+        FROM
+            Posts
+        JOIN Users ON Posts.author = Users.id
+        WHERE
+            Posts.group_id = ?
         """, (group_id,)
     ).fetchall()
 
@@ -213,14 +224,24 @@ def group(group_id):
         """, (group_id,)
     ).fetchall()
 
-    names = db.execute(
-        """
-        SELECT Users.name, Users.pronouns, Users.color
-        FROM Users
-        JOIN Posts ON Users.id = Posts.author
-        WHERE Posts.group_id = ?
-        """, (group_id,)
-    ).fetchall()
+    if request.method == 'GET' and 'post' in request.args:
+        try:
+            post = request.args.get('post')
 
-    return render_template("/server/group.html",
-                           group_id=group_id-1, group_info=group_info, posts=posts, members=members, names=names)
+            comments = db.execute(
+                """
+                SELECT *
+                FROM Comments
+                WHERE post_id = ?
+                """, (post,)
+            ).fetchall()
+
+            comments = [list(i) for i in comments]
+            posts = [list(i) for i in posts]
+
+            return [comments, posts]
+        except ValueError:
+            return "Invalid request."
+    else:
+        return render_template("/server/group.html",
+                               group_id=group_id-1, group_info=group_info, posts=posts, members=members)

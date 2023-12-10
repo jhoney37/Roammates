@@ -23,7 +23,7 @@
  -->
 {% macro member_card(color, name, pronouns) -%}
 <div id="member-container">
-    <div class="card {{ color }}" id="member">
+    <div class="card {{ color }} member" id="">
         <div id="name-pronouns">
             <p>{{ name }}</p>
             <p>{{ pronouns }}</p>
@@ -43,7 +43,7 @@
  -->
 {% macro member_list_card(members) -%}
 <div>
-    <div class="card" id="member-list">
+    <div class="card member-list" id="">
         <h1>Members</h1>
         {% for i in range(members | length) %}
             {{ member_card(members[i][7], members[i][3], members[i][4]) }}
@@ -60,7 +60,7 @@
     Information gets stored under the user's profile information
  -->
 {% macro profile_setup_card() -%}
-<div class="card" id="profile-setup">
+<div class="card profile-setup" id="">
     <h1>Set Up Your Profile</h1>
     <div class="profile-picture">
         <p>Upload an Avatar</p>
@@ -84,7 +84,7 @@
     Basic area for displaying information on school resources, where to contact us, etc.
  -->
 {% macro contact_card() -%}
-<div class="card" id="contact">
+<div class="card contact" id="">
     <div id="our-contact">
         <h1>Contact Us</h1>
         <p>To contact us, please email: <br><a href="mailto:abc@gmail.com">abc@gmail.com</a></p>
@@ -110,7 +110,7 @@
     Displays a group's summary for the 'list of groups' page
  -->
 {% macro group_card(i, groups, members, avatars, joined_groups) -%}
-<div class="card" id="group">
+<div class="card group" id="">
     <div class="column" id="left">
         <ul>
             <li class="primary">{{ groups[i]['title'] }}</li>
@@ -144,7 +144,7 @@
     carousel for displaying their active groups
  -->
 {% macro profile_card() -%}
-<div class="card" id="profile">
+<div class="card profile" id="">
     <div id="profile-head">
         <div class="text">
             <ul>
@@ -182,7 +182,7 @@
     A carousel that allows users to view the groups they've joined on their profile page.
  -->
 {% macro carousel_card() -%}
-<div id="carousel">
+<div class="carousel">
     <div id="container">
         <button id="carousel-left"><i class="fa-solid fa-circle-arrow-left fa-lg" style="color: #79d6d6;"></i></button>
         <div id="content">
@@ -207,7 +207,7 @@
  -->
 {% macro mini_group_card() -%}
 <div>
-    <div class="card" id="mini-group">
+    <div class="card mini-group" id="">
         <ul>
             <li class="primary">Title</li>
             <li class="primary">Location</li>
@@ -227,7 +227,7 @@
  -->
 {% macro sign_in_card(error) -%}
     <div>
-        <div class="card" id="sign-in" style="text-align: center;">
+        <div class="card sign-in" id="" style="text-align: center;">
             <h1>Welcome</h1>
 
             <p class="sub-primary">You will need a UNC Charlotte<br>email address in order to proceed.</p>
@@ -248,7 +248,7 @@
  -->
 {% macro expanded_post_card(post, author, comments) -%}
 <div id="expanded-container">
-    <div class="card" id="expanded-post">
+    <div class="card expanded-post" id="">
         <div id="original-post">
             <div id="post-header">
                 <h1></h1>
@@ -287,7 +287,7 @@
  -->
 {% macro comment_card(color) -%}
 <div>
-    <div class="card" id="comment">
+    <div class="card comment" id="">
         <div id="comment-header">
             {{ member_card(color) }}
             <h2>Date Posted</h2>
@@ -310,9 +310,9 @@
     ------------
     Displays a concise version of a post from a group
  -->
-{% macro post_card(title, author, pronouns, color, date_posted, content) -%}
+{% macro post_card(id, title, content, posted_at, author, color, pronouns) -%}
 <div>
-    <div class="card" id="post">
+    <div class="card post" id="{{ id }}">
         <ul>
             <li class="primary">{{ title }}</li>
             <li class="secondary">{{ date_posted }}</li>
@@ -324,7 +324,8 @@
 {%- endmacro %}
 
 
-<!-- Reply Card
+<!-- 
+    Reply Card
     ------------
     Displays the user's member card, date posted, and reply that they typed
  -->
@@ -352,7 +353,7 @@
     A scrollable checkbox list that states the potential dangers for the user in operating the site
  -->
 {% macro terms_card() -%}
-<div class="card" id="terms-of-service" style="text-align: center;">
+<div class="card terms-of-service" id="" style="text-align: center;">
     <h1>Terms of Service</h1>
 
     <div class="question">

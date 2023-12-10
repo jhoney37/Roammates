@@ -157,17 +157,17 @@ nav a {
 
 /* Post Card */
 
-#post {
+.post {
     margin-bottom: 2em;
     filter: brightness(1) drop-shadow(6px 6px 2px rgba(0, 0, 0, 0.75));
     transition: all 0.2s;
 }
 
-#post:hover {
+.post:hover {
     filter: brightness(120%) drop-shadow(6px 6px 2px rgba(0, 0, 0, 2));
 }
 
-#post ul {
+.post ul {
     list-style-type: none;
     display: flex;
     align-items: center;
@@ -176,13 +176,13 @@ nav a {
     padding: 0;
 }
 
-#post li {
+.post li {
     margin-right: 1.5em;
     font-size: 1.5em;
     filter: brightness(100%) drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.75));
 }
 
-#post p {
+.post p {
     margin-top: 0.4em;
     margin-bottom: 0;
     padding: 0;
@@ -191,41 +191,41 @@ nav a {
     margin-bottom: 1em;
 }
 
-#post .secondary {
+.post .secondary {
     opacity: 0.5;
     font-size: 1.1em;
 }
 
 /* Member List Card */
 
-#member-list #member {
+.member-list .member {
     margin-bottom: 1.5em;
 }
 
-#member-list h1 {
+.member-list h1 {
     text-align: center;
     margin-top: 0;
 }
 
-.green #member {
+.green .member {
     background-color: var(--green);
 }
 
-.purple #member {
+.purple .member {
     background-color: var(--purple);
 }
 
-.pink #member {
+.pink .member {
     background-color: var(--pink);
 }
 
-.red #member {
+.red .member {
     background-color: var(--red);
 }
 
 /* Member Card */
 
-#member {
+.member {
     width: 10em;
     display: flex;
     padding: 0.7em;
@@ -233,12 +233,11 @@ nav a {
     border-radius: 14px;
 }
 
-#member p {
+.member p {
     margin: 0;
-    /* filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.75)); */
-    font-size: 0.75em;
+    font-size: 0.85em;
     font-weight: 1000;
-    color: var(--black)
+    color: var(--black);
 }
 
 #name-pronouns {
@@ -249,14 +248,14 @@ nav a {
     width: 100%;
 }
 
-#member img {
+.member img {
     max-height: 40px;
     max-width: 40px;
     border-radius: 25%;
     filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.75));
 }
 
-#member #avatar {
+.member #avatar {
     display: flex;
     align-items: center;
 }
@@ -270,7 +269,7 @@ nav a {
     align-items: center;
 }
 
-#expanded-post {
+.expanded-post {
     display: flex;
     flex-direction: column;
     padding: 50px;
@@ -281,16 +280,16 @@ nav a {
     align-items: center;
 }
 
-#expanded-post::-webkit-scrollbar {
+.expanded-post::-webkit-scrollbar {
     display: none;
 }
 
-#expanded-post hr {
+.expanded-post hr {
     margin-top: 20px;
     width: 100%;
 }
 
-#expanded-post .basic.blue {
+.expanded-post .basic.blue {
     margin-top: 20px;
 }
 
@@ -320,7 +319,7 @@ nav a {
 
 /* Comment Card */
 
-#comment {
+.comment {
     margin: 15px 0px;
     padding: 20px 25px;
     background-color: var(--black);
@@ -329,7 +328,7 @@ nav a {
     gap: 20px;
 }
 
-#comment > p {
+.comment > p {
     margin: 0;
     margin-top: 5px;
     display: flex;
@@ -353,70 +352,29 @@ nav a {
 
 /* Sign-in Card */
 
-#sign-in {
+.sign-in {
     padding: 25px 50px;
 }
 
-#sign-in h1 {
+.sign-in h1 {
     margin-bottom: 30px;
-}
-
-#signin-button {
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
-
-#signup-button {
-    margin-top: 0;
-    margin-bottom: 30px;
-}
-
-/* Sign-up Card */
-
-#sign-up {
-    padding: 25px 50px;
-}
-
-#sign-up h1 {
-    margin-bottom: 30px;
-}
-
-#confirm-button {
-    margin-top: 10px;
-    margin-bottom: 30px;
-}
-
-/* Email Confirmation Card */
-
-#email-confirmation {
-    padding: 25px 50px;
-    padding-top: 35px;
-}
-
-#submit-confirmation {
-    margin-top: 10px;
-    margin-bottom: 30px;
-}
-
-#cnfrm-email {
-    margin-top: 0;
 }
 
 /* Terms of Service Card */
 
-#terms-of-service {
+.terms-of-service {
     padding: 25px 50px;
     text-align: center;
     height: 40em; 
     overflow-y: auto;
 }
 
-#terms-of-service p {
+.terms-of-service p {
     text-align: left;
     width: 25em;
 }
 
-#terms-of-service .checkbox {
+.terms-of-service .checkbox {
     margin: 0;
     width: 2em;
     margin-left: auto;
@@ -430,49 +388,49 @@ nav a {
 
 /* Group Card */
 
-#group {
+.group {
     display: flex;
     margin-bottom: 2em;
     transition: all 0.2s;
 }
 
-#group .column {
+.group .column {
     display: flex;
     flex-direction: column;
 }
 
-#group #left {
+.group #left {
     margin-right: 3em;
 }
 
-#group #left p {
+.group #left p {
     margin-top: 1.5em;
 }
 
-#group #right {
+.group #right {
     align-items: center;
     justify-content: center;
 }
 
-#group #right img {
+.group #right img {
     width: 12em;
     border-radius: 10%;
     margin-bottom: 1em;
     filter: drop-shadow(6px 6px 2px rgba(0, 0, 0, 0.75));
 }
 
-#group:hover {
+.group:hover {
     filter: brightness(120%) drop-shadow(6px 6px 2px rgba(0, 0, 0, 2));
 }
 
-#group ul {
+.group ul {
     list-style-type: none;
     display: flex;
     margin: 0;
     padding: 0;
 }
 
-#group li {
+.group li {
     margin: 0;
     margin-right: auto;
     font-size: 1.5em;
@@ -480,14 +438,14 @@ nav a {
     filter: brightness(100%) drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.75));
 }
 
-#group p {
+.group p {
     align-items: center;
     margin-bottom: 0;
     padding: 0;
     font-size: 1.1em;
 }
 
-#group .secondary {
+.group .secondary {
     opacity: 0.5;
     margin-left: 1.2em;
     margin-top: auto;
@@ -498,7 +456,7 @@ nav a {
 
 /* Profile Card */
 
-#profile {
+.profile {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -510,22 +468,22 @@ nav a {
     display: flex;
 }
 
-#profile .text ul {
+.profile .text ul {
     display: flex;
     gap: 1.5rem;
     align-items: baseline;
     margin-left: -2.6rem;
 }
 
-#profile .text .primary {
+.profile .text .primary {
     font-size: 2.35em;
 }
 
-#profile .text .secondary, #profile .text p {
+.profile .text .secondary, .profile .text p {
     font-size: 1.15em;
 }
 
-#profile .text .secondary {
+.profile .text .secondary {
     opacity: 50%;
 }
 
@@ -560,7 +518,7 @@ nav a {
 
 /* Carousel Card */
 
-#carousel {
+.carousel {
     margin-top: 1.7rem;
     margin-bottom: 2.5rem;
     padding: 2em;
@@ -570,19 +528,19 @@ nav a {
     width: 55.5em;
 }
 
-#carousel #header {
+.carousel #header {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#carousel #container {
+.carousel #container {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-#carousel #content {
+.carousel #content {
     display: flex;
     scroll-behavior: smooth;
     overflow: scroll;
@@ -591,11 +549,11 @@ nav a {
     scrollbar-width: 0;
 }
 
-#carousel #content > * {
+.carousel #content > * {
     scroll-snap-align: center;
 }
 
-#carousel #content::-webkit-scrollbar {
+.carousel #content::-webkit-scrollbar {
     display: none;
 }
 
@@ -618,29 +576,29 @@ nav a {
 
 /* Mini-Group Card */
 
-#mini-group, #mini-group ul {
+.mini-group, .mini-group ul {
     display: flex;
     flex-direction: column;
 }
 
-#mini-group {
+.mini-group {
     justify-content: center;
     align-items: center;
     width: 200px;
     margin: 1em;
 }
 
-#mini-group ul {
+.mini-group ul {
     gap: 0.5rem;
     margin-top: -5px;
 }
 
-#mini-group .primary, #mini-group .secondary {
+.mini-group .primary, .mini-group .secondary {
     text-align: center;
     margin-right: 2.6rem;
 }
 
-#mini-group img {
+.mini-group img {
     max-width: 100%;
     border-radius: 16px;
     filter: brightness(1) drop-shadow(6px 6px 2px rgba(0, 0, 0, 0.75));
@@ -648,7 +606,7 @@ nav a {
 
 /* Contact Card */
 
-#contact {
+.contact {
     background-color: var(--light-grey);
     display: flex;
     flex-direction: column;
@@ -664,45 +622,45 @@ nav a {
     z-index: -1;
 }
 
-#contact.open {
+.contact.open {
     opacity: 1;
     z-index: 999;
 }
 
-#contact #our-contact {
+.contact #our-contact {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
 
-#contact #our-contact p {
+.contact #our-contact p {
     line-height: 1.8em;
 }
 
-#contact #resources {
+.contact #resources {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#contact #resource-list {
+.contact #resource-list {
     text-align: center;
     list-style: none;
     padding: 0;
 }
 
-#contact #resource-list li {
+.contact #resource-list li {
     margin-bottom: 10px;
 }
 
-#contact #resource-list a, #contact #our-contact a {
+.contact #resource-list a, .contact #our-contact a {
     color: var(--red); 
     text-decoration: none;
     font-weight: bold;
     transition: all 0.2s;
 }
 
-#contact #resource-list a:hover, #contact #our-contact a:hover {
+.contact #resource-list a:hover, .contact #our-contact a:hover {
     filter: brightness(130%) drop-shadow(4px 4px 2px rgba(0, 0, 0, 2));
 }

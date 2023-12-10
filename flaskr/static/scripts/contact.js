@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
-    var open = document.getElementById("contact-button");
-    var contact = document.getElementById("contact");
+    let open = document.getElementById("contact-button");
+    let contact = document.querySelector(".contact");
 
     open.addEventListener("click", ()=> {
         if (contact.classList.contains("open")) {
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     document.addEventListener("click", (event) => {
-        if (!event.target.closest("#contact-button") && !event.target.closest("#contact")) {
+        if (!event.target.closest("#contact-button") && !event.target.closest(".contact")) {
             contact.classList.remove("open");
         }
     });

@@ -7,7 +7,8 @@ checkboxes.forEach(checkbox => {
 // Add event listener for the "Agree to Terms" button
 document.getElementById('confirm-terms').addEventListener('click', function () {
     if (areAllCheckboxesChecked()) {
-        {{ checked }}
+        // Add logic to navigate to the next page or perform other actions
+        return true
     } else {
         alert('All terms must be agreed upon to continue.');
     }
@@ -23,11 +24,4 @@ function checkAllCheckboxes() {
     const agreeButton = document.getElementById('confirm-terms');
     agreeButton.removeEventListener('click'); // Remove previous event listener
     agreeButton.addEventListener('click', showAlert); // Add a new event listener
-}
-
-// Function to show alert
-function showAlert() {
-    if (!areAllCheckboxesChecked()) {
-        alert('All terms must be agreed upon to continue.');
-    }
 }

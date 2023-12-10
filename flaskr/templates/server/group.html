@@ -14,32 +14,32 @@
         align-items: center;
     }
 
-    #columns-container {
+    .columns-container {
         display: flex;
         justify-content: center;
         align-items: flex-start; 
         width: 100%;
     }
 
-    #title {
+    .title {
         text-align: center;
         margin: 30px 0px;
     }
 
-    #posts-list {
+    .posts-list {
         display: block;
         width: 40%;
         margin-right: 30px;
     }
 
-    #member-list-container {
+    .member-list-container {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
     }
 
-    #member-list-container button {
+    .member-list-container button {
         margin-top: 30px;
     }
 
@@ -68,13 +68,23 @@
     <h1 id="title">{{ group_info[0][1] }}</h1>
 </header>
 
-<div id="columns-container">
-    <div id="posts-list">
+<div class="columns-container">
+    <div class="posts-list">
         {% for i in range(posts | length) %}
-            {{ post_card(posts[i][4], names[i][0], names[i][1], names[i][2], posts[i][2], posts[i][5]) }}
+            {{ 
+                post_card(
+                    posts[i][0], 
+                    posts[i][1], 
+                    posts[i][2], 
+                    posts[i][3], 
+                    posts[i][4], 
+                    posts[i][5], 
+                    posts[i][6]
+                ) 
+            }}
         {% endfor %}
     </div>
-    <div id="member-list-container">
+    <div class="member-list-container">
         {{ member_list_card(members) }}
         <button class="basic blue" id="join">Join</button>
     </div>

@@ -1,4 +1,4 @@
-const prev = document.getElementById('carousel-left');
+const prev = document.getElementsById('carousel-left');
 const next = document.getElementById('carousel-right');
 const list = document.getElementById('content');
 const itemWidth = 200;

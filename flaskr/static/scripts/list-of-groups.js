@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     let joinButtons = document.querySelectorAll('.basic')
     let forms = document.querySelectorAll('form')
-    let groups = document.querySelectorAll('#group')
 
     window.onload = function() {
         forms.forEach((form) => {
@@ -23,12 +22,6 @@ document.addEventListener("DOMContentLoaded", function() {
             })
         })
     }
-
-    // groups.forEach((group) => {
-    //     group.addEventListener("click", ()=> {
-            
-    //     })
-    // })
 
     joinButtons.forEach((button) => {
         if (button.textContent === "Join" || button.textContent === "Leave") {
