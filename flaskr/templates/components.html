@@ -7,7 +7,7 @@
 <nav>
     <img id="logo" src="{{ url_for('static', filename='/assets/Roammates Logo.png') }}" alt="">
     <ul>
-        <li><a href="listOfGroups.html"><button class="banner"><img src="" alt="">Home</button></a></li>
+        <li><a href="/server/groups_list"><button class="banner"><img src="" alt="">Home</button></a></li>
         <li><a href="profile.html"><button class="banner"><img src="" alt="">Profile</button></a></li>
         <li><button id="contact-button" class="banner"><img src="" alt="">Contact Us</button></li>
         <li><a href="/server/logout"><button class="banner"><img src="" alt="">Sign Out</button></a></li>
@@ -21,12 +21,12 @@
     -----------
     Used for displaying another user's info in a small button-like window
  -->
-{% macro member_card(color) -%}
+{% macro member_card(color, name, pronouns) -%}
 <div id="member-container">
     <div class="card {{ color }}" id="member">
         <div id="name-pronouns">
-            <p>Name</p>
-            <p>Pronouns</p>
+            <p>{{ name }}</p>
+            <p>{{ pronouns }}</p>
         </div>
         <div id="avatar">
             <img src="{{ url_for('static', filename='/assets/Profile Avatar.jpg') }}" alt="">
@@ -41,14 +41,13 @@
     -----------
     A compact list of users who are currently in a group
  -->
-{% macro member_list_card() -%}
+{% macro member_list_card(members) -%}
 <div>
     <div class="card" id="member-list">
         <h1>Members</h1>
-        {{ member_card('green') }}
-        {{ member_card('purple') }}
-        {{ member_card('pink') }}
-        {{ member_card('red') }}
+        {% for i in range(members | length) %}
+            {{ member_card(members[i][7], members[i][3], members[i][4]) }}
+        {% endfor %}
     </div>
 </div>
 {%- endmacro %}
@@ -110,34 +109,29 @@
     ----------
     Displays a group's summary for the 'list of groups' page
  -->
-{% macro group_card() -%}
+{% macro group_card(i, groups, members, avatars, joined_groups) -%}
 <div class="card" id="group">
     <div class="column" id="left">
         <ul>
-            <li class="primary">Title</li>
-            <li class="secondary">Location</li>
-            <li class="secondary"># of Members</li>
+            <li class="primary">{{ groups[i]['title'] }}</li>
+            <li class="secondary">{{ groups[i]['location'] }}</li>
+            <li class="secondary">Members: {{ members[i][2] }}</li>
         </ul>
-
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-            eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-            sunt in culpa qui officia deserunt mollit anim id est laborum.
-            <br><br>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-            eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-            sunt in culpa qui officia deserunt mollit anim id est laborum.
+            {{ groups[i]['description'] }}
         </p>
     </div>
     <div class="column" id="right">
-        <img src="{{ url_for('static', filename='/assets/Group Avatar.png') }}" alt="">
-        <button class="basic blue">Join</button>
+        <img src="data:;base64,{{ avatars[i] }}" alt="">
+        {% if groups[i][0] in joined_groups %}
+            <form method="POST">
+                <button type="submit" name="leave" value="{{ groups[i][0] }}" class="basic orange">Leave</button>
+            </form>
+        {% else %}
+            <form method="POST">
+                <button type="submit" name="join" value="{{ groups[i][0] }}" class="basic blue">Join</button>
+            </form>
+        {% endif %}
     </div>
 </div>
 {%- endmacro %}
@@ -252,14 +246,14 @@
     ---------
     An expanded view of a post that shows a scrollable list of the comments as well as the user that posted
  -->
-{% macro expanded_post_card() -%}
+{% macro expanded_post_card(post, author, comments) -%}
 <div id="expanded-container">
     <div class="card" id="expanded-post">
         <div id="original-post">
             <div id="post-header">
-                <h1>Title</h1>
-                <h2>Date Posted</h2>
-                {{ member_card('green') }}
+                <h1></h1>
+                <h2></h2>
+                <!-- member card -->
             </div>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -275,11 +269,9 @@
             {{ reply_card() }}
         </div>
         <hr>
-        {{ comment_card('purple') }}
-        {{ comment_card('pink') }}
-        {{ comment_card('red') }}
-        {{ comment_card('green') }}
-        {{ comment_card('purple') }}
+        {% for i in comments %}
+            {{ comment_card() }}
+        {% endfor %}
 
         <button class="basic blue">Reply</button>
     </div>
@@ -318,22 +310,15 @@
     ------------
     Displays a concise version of a post from a group
  -->
-{% macro post_card() -%}
+{% macro post_card(title, author, pronouns, color, date_posted, content) -%}
 <div>
     <div class="card" id="post">
         <ul>
-            <li class="primary">Title</li>
-            <li class="secondary">Author</li>
-            <li class="secondary">Date Posted</li>
+            <li class="primary">{{ title }}</li>
+            <li class="secondary">{{ date_posted }}</li>
+            {{ member_card(color, author, pronouns) }}
         </ul>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-            eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-            sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+        <p>{{ content }}</p>
     </div>
 </div>
 {%- endmacro %}

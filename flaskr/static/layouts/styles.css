@@ -170,22 +170,30 @@ nav a {
 #post ul {
     list-style-type: none;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin: 0;
     padding: 0;
 }
 
 #post li {
     margin-right: 1.5em;
+    font-size: 1.5em;
+    filter: brightness(100%) drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.75));
 }
 
 #post p {
     margin-top: 0.4em;
     margin-bottom: 0;
     padding: 0;
+    font-size: 1.1em;
+    margin-top: 2.5em;
+    margin-bottom: 1em;
 }
 
 #post .secondary {
     opacity: 0.5;
+    font-size: 1.1em;
 }
 
 /* Member List Card */
@@ -218,20 +226,30 @@ nav a {
 /* Member Card */
 
 #member {
+    width: 10em;
     display: flex;
-    justify-content: space-between;
     padding: 0.7em;
-    height: 40px;
+    height: 2.5em;
     border-radius: 14px;
 }
 
 #member p {
     margin: 0;
-    filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.75));
+    /* filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.75)); */
+    font-size: 0.75em;
+    font-weight: 1000;
+    color: var(--black)
+}
+
+#name-pronouns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 #member img {
-    margin-left: 40px;
     max-height: 40px;
     max-width: 40px;
     border-radius: 25%;
@@ -285,11 +303,6 @@ nav a {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-}
-
-#post-header #member-container {
-    margin-left: auto;
-    padding-bottom: 0.2em;
 }
 
 #post-header h2 {
@@ -442,7 +455,7 @@ nav a {
 }
 
 #group #right img {
-    width: 15em;
+    width: 12em;
     border-radius: 10%;
     margin-bottom: 1em;
     filter: drop-shadow(6px 6px 2px rgba(0, 0, 0, 0.75));
@@ -460,17 +473,27 @@ nav a {
 }
 
 #group li {
-    margin-right: 20px;
+    margin: 0;
+    margin-right: auto;
+    font-size: 1.5em;
+    text-align: center;
+    filter: brightness(100%) drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.75));
 }
 
 #group p {
-    margin-top: 5px;
+    align-items: center;
     margin-bottom: 0;
     padding: 0;
+    font-size: 1.1em;
 }
 
 #group .secondary {
     opacity: 0.5;
+    margin-left: 1.2em;
+    margin-top: auto;
+    margin-right: 0;
+    font-size: 1.1em;
+    padding-bottom: 2px;
 }
 
 /* Profile Card */

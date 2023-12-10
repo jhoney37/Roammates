@@ -65,20 +65,17 @@
 {{ contact_card() }}
 
 <header>
-    <h1 id="title">[Group Name]</h1>
+    <h1 id="title">{{ group_info[0][1] }}</h1>
 </header>
 
 <div id="columns-container">
     <div id="posts-list">
-        {{ post_card() }}
-        {{ post_card() }}
-        {{ post_card() }}
-        {{ post_card() }}
-        {{ post_card() }}
-        {{ post_card() }}
+        {% for i in range(posts | length) %}
+            {{ post_card(posts[i][4], names[i][0], names[i][1], names[i][2], posts[i][2], posts[i][5]) }}
+        {% endfor %}
     </div>
     <div id="member-list-container">
-        {{ member_list_card() }}
+        {{ member_list_card(members) }}
         <button class="basic blue" id="join">Join</button>
     </div>
 </div>

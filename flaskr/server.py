@@ -1,14 +1,15 @@
 # 📁 server.py -----
 
 import json
+import sqlite3
 from os import environ as env
 from dotenv import find_dotenv, load_dotenv
 from urllib.parse import quote_plus, urlencode
 from authlib.integrations.base_client import errors
 from authlib.integrations.flask_client import OAuth
-from flask import Blueprint, redirect, render_template, session, url_for, current_app, g
-from flask.cli import with_appcontext
+from flask import Blueprint, redirect, render_template, session, url_for, current_app, request
 from flaskr.db import get_db
+from base64 import b64encode
 
 ENV_FILE = find_dotenv()
 if ENV_FILE:
@@ -109,17 +110,117 @@ def add_user():
     return redirect("/")
 
 
-@bp.route("/groups_list")
+@bp.route("/groups_list", methods=['GET'])
 def groups_list():
-    return session_check(session, "server/groupsList")
+    db = get_db()
+    groups = db.execute(
+        """
+        SELECT id, title, location, description, avatar
+        FROM Groups
+        ORDER BY id ASC
+        """
+    ).fetchall()
+
+    members = db.execute(
+        """
+        SELECT Groups.id, Groups.title, COUNT(GroupMembers.group_id) AS member_count
+        FROM Groups
+        LEFT JOIN GroupMembers ON Groups.id = GroupMembers.group_id
+        GROUP BY Groups.id, Groups.title
+        """
+    ).fetchall()
+
+    joined_groups = db.execute(
+        """
+        SELECT g.group_id
+        FROM GroupMembers as g, Users as u
+        WHERE g.user_id = u.id
+        AND email = ?
+        """, (session.get('user')['userinfo']['name'],)
+    ).fetchall()
+    joined_groups = [i[0] for i in joined_groups]
+
+    avatars = []
+    for i in groups:
+        avatars.append(b64encode(i[4]).decode("utf-8"))
+
+    return render_template('server/groupsList.html',
+                           groups=groups, members=members, avatars=avatars, joined_groups=joined_groups)
+
+
+@bp.route("/group_membership", methods=['POST'])
+def group_membership():
+    db = get_db()
+    if request.method == 'POST':
+        data = request.get_json()
+        type = data['type']
+        value = data['value']
+
+        if type == 'join':
+            db.execute(
+                """
+                INSERT INTO GroupMembers
+                VALUES (NULL, ?, (SELECT id FROM Users WHERE email = ?))
+                """, (value, session.get('user')['userinfo']['name'],)
+            )
+            db.commit()
+        elif type == 'leave':
+            db.execute(
+                """
+                DELETE FROM GroupMembers
+                WHERE group_id = ?
+                AND user_id = (SELECT id FROM Users WHERE email = ?)
+                """, (value, session.get('user')['userinfo']['name'],)
+            )
+            db.commit()
+        else:
+            print("Incorrect button type when submitting.")
+
+    return redirect('/server/groups_list')
 
 
 @bp.route("/profile")
 def profile():
-    return session_check(session, "server/profile")
+    return session_check(session, "/server/profile")
 
 
-@bp.route("/group")
-def group():
-    return session_check(session, "server/group")
+@bp.route("/<int:group_id>/group", methods=['GET', 'POST'])
+def group(group_id):
+    db = get_db()
 
+    group_info = db.execute(
+        """
+        SELECT *
+        FROM Groups
+        WHERE id = ?
+        """, (group_id,)
+    ).fetchall()
+
+    posts = db.execute(
+        """
+        SELECT *
+        FROM Posts
+        WHERE group_id = ?
+        """, (group_id,)
+    ).fetchall()
+
+    members = db.execute(
+        """
+        SELECT *
+        FROM Users
+        JOIN GroupMembers ON Users.id = GroupMembers.user_id
+        WHERE GroupMembers.group_id = ?
+        """, (group_id,)
+    ).fetchall()
+
+    names = db.execute(
+        """
+        SELECT Users.name, Users.pronouns, Users.color
+        FROM Users
+        JOIN Posts ON Users.id = Posts.author
+        WHERE Posts.group_id = ?
+        """, (group_id,)
+    ).fetchall()
+
+    return render_template("/server/group.html",
+                           group_id=group_id-1, group_info=group_info, posts=posts, members=members, names=names)
