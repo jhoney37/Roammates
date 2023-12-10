@@ -32,3 +32,10 @@ if __name__ == '__main__':
     insert_blob('static/assets/avatars/Amazon Rainforest.png', 'Wildlife Conservation Expedition')
     insert_blob('static/assets/avatars/Kyoto.png', 'Cultural Immersion in Kyoto')
     insert_blob('static/assets/avatars/Galapagos Islands.png', 'Sun, Sand, and Science')
+    
+    #profile pictures for users
+    insert_blob('static/assets/avatars/taylorjohnson.png', 'Taylor Johnson')
+    insert_blob('static/assets/avatars/alexrodriguez.png', 'Alex Rodriguez')
+    insert_blob('static/assets/avatars/jordanwilliams.png', 'Jordan Williams')
+    insert_blob('static/assets/avatars/morganlee.png', 'Morgan Lee')
+    insert_blob('static/assets/avatars/cameronpatel.png', 'Cameron Patel')
