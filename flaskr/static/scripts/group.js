@@ -1,33 +1,39 @@
 document.addEventListener("DOMContentLoaded", function() {
     let overlay = document.getElementById("overlay-container");
     let posts = document.querySelectorAll(".post")
-    let expandedPost = document.querySelector(".expanded-post");
 
     let join = document.getElementById("join");
 
     // Event listener for clicks on posts to show the overlay
     posts.forEach(function(post) {
+        console.log(post.id)
+        post_id = post.id.slice("post-".length)
+        console.log(post_id)
+
         post.addEventListener("click", function() {
             overlay.style.opacity = 1;
             overlay.style.visibility = "visible";
+            
+            overlay.innerHTML = `{{ expanded_post(post[${post_id}], comments[${post_id}]) }}`
 
-            fetch(`${window.location.pathname}?post=${post.id}`, {
+            fetch(`${window.location.pathname}?post_id=${post_id}`, {
                 method: 'GET',
                 headers: {
                     "Content-Type": "application/json"
                 }
             })
-            .then(res => {
-                console.log(res)
-                overlay.innerHTML = `{{ expanded_post() }}`
+            .then(res => res.text())
+            .then(html => {
+                overlay.innerHTML = html
             })
         });
 
         // Event listener for clicks outside the expanded post to hide the overlay
         overlay.addEventListener("click", function() {
+            expanded = document.getElementById(`expanded-${post_id}`)
             let clickX = event.clientX;
             let clickY = event.clientY;
-            let cardRect = expandedPost.getBoundingClientRect();
+            let cardRect = expanded.getBoundingClientRect();
             
             if (!(clickX >= cardRect.left && clickX <= cardRect.right && clickY >= cardRect.top && clickY <= cardRect.bottom)) {
                 overlay.style.opacity = 0;

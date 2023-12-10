@@ -224,24 +224,27 @@ def group(group_id):
         """, (group_id,)
     ).fetchall()
 
-    if request.method == 'GET' and 'post' in request.args:
-        try:
-            post = request.args.get('post')
+    posts_formatted = {}
+    for post in posts:
+        posts_formatted[post[0]] = post
 
-            comments = db.execute(
-                """
-                SELECT *
-                FROM Comments
-                WHERE post_id = ?
-                """, (post,)
-            ).fetchall()
+    comments = {}
+    for post in posts:
+        post_comments = db.execute(
+            """
+            SELECT *
+            FROM Comments
+            WHERE id = ?
+            """, (post[0],)
+        ).fetchall()
 
-            comments = [list(i) for i in comments]
-            posts = [list(i) for i in posts]
+        comments[post[0]] = post_comments
 
-            return [comments, posts]
-        except ValueError:
-            return "Invalid request."
-    else:
-        return render_template("/server/group.html",
-                               group_id=group_id-1, group_info=group_info, posts=posts, members=members)
+    if request.method == 'GET' and 'post_id' in request.args:
+        post_id = int(request.args.get('post_id'))
+
+        return render_template('/server/overlay_template.html'
+                               , post=posts_formatted[post_id], comments=comments[post_id])
+
+    return render_template("/server/group.html",
+                           group_id=group_id-1, group_info=group_info, posts=posts, members=members, comments=comments)

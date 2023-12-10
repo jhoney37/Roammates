@@ -23,7 +23,7 @@
  -->
 {% macro member_card(color, name, pronouns) -%}
 <div id="member-container">
-    <div class="card {{ color }} member" id="">
+    <div class="card {{ color }} member">
         <div id="name-pronouns">
             <p>{{ name }}</p>
             <p>{{ pronouns }}</p>
@@ -43,7 +43,7 @@
  -->
 {% macro member_list_card(members) -%}
 <div>
-    <div class="card member-list" id="">
+    <div class="card member-list">
         <h1>Members</h1>
         {% for i in range(members | length) %}
             {{ member_card(members[i][7], members[i][3], members[i][4]) }}
@@ -60,7 +60,7 @@
     Information gets stored under the user's profile information
  -->
 {% macro profile_setup_card() -%}
-<div class="card profile-setup" id="">
+<div class="card profile-setup">
     <h1>Set Up Your Profile</h1>
     <div class="profile-picture">
         <p>Upload an Avatar</p>
@@ -84,7 +84,7 @@
     Basic area for displaying information on school resources, where to contact us, etc.
  -->
 {% macro contact_card() -%}
-<div class="card contact" id="">
+<div class="card contact">
     <div id="our-contact">
         <h1>Contact Us</h1>
         <p>To contact us, please email: <br><a href="mailto:abc@gmail.com">abc@gmail.com</a></p>
@@ -110,7 +110,7 @@
     Displays a group's summary for the 'list of groups' page
  -->
 {% macro group_card(i, groups, members, avatars, joined_groups) -%}
-<div class="card group" id="">
+<div class="card group">
     <div class="column" id="left">
         <ul>
             <li class="primary">{{ groups[i]['title'] }}</li>
@@ -144,7 +144,7 @@
     carousel for displaying their active groups
  -->
 {% macro profile_card() -%}
-<div class="card profile" id="">
+<div class="card profile">
     <div id="profile-head">
         <div class="text">
             <ul>
@@ -207,7 +207,7 @@
  -->
 {% macro mini_group_card() -%}
 <div>
-    <div class="card mini-group" id="">
+    <div class="card mini-group">
         <ul>
             <li class="primary">Title</li>
             <li class="primary">Location</li>
@@ -227,7 +227,7 @@
  -->
 {% macro sign_in_card(error) -%}
     <div>
-        <div class="card sign-in" id="" style="text-align: center;">
+        <div class="card sign-in" style="text-align: center;">
             <h1>Welcome</h1>
 
             <p class="sub-primary">You will need a UNC Charlotte<br>email address in order to proceed.</p>
@@ -246,31 +246,20 @@
     ---------
     An expanded view of a post that shows a scrollable list of the comments as well as the user that posted
  -->
-{% macro expanded_post_card(post, author, comments) -%}
+{% macro expanded_post_card(id, post, comments) -%}
 <div id="expanded-container">
-    <div class="card expanded-post" id="">
+    <div class="card expanded-post" id="expanded-{{ id }}">
         <div id="original-post">
-            <div id="post-header">
-                <h1></h1>
-                <h2></h2>
-                <!-- member card -->
-            </div>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-        </div>
-        <!-- Reply container -->
-        <div id="reply-container" style="display: none;">
-            {{ reply_card() }}
+            <ul>
+                <li>{{ post[1] }}</li>
+                <li class="secondary">{{ post[3] }}</li>
+                {{ member_card(post[5], post[4], post[6]) }}
+            </ul>
+            <p>{{ post[2] }}</p>
         </div>
         <hr>
         {% for i in comments %}
-            {{ comment_card() }}
+            {{ comment_card(comments[i], post[5], post[4], post[6]) }}
         {% endfor %}
 
         <button class="basic blue">Reply</button>
@@ -285,37 +274,30 @@
     For use in expanded post card
     Displays a user's member card, the date posted, and the comment that they typed
  -->
-{% macro comment_card(color) -%}
+{% macro comment_card(comment, color, name, pronouns) -%}
 <div>
-    <div class="card comment" id="">
+    <div class="card comment">
         <div id="comment-header">
-            {{ member_card(color) }}
-            <h2>Date Posted</h2>
+            {{ member_card(color, name, pronouns) }}
+            <h2>{{ comment[4] }}</h2>
         </div>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-            eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-            sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+        <p>{{ comment[3] }}</p>
     </div>
 </div>
 {%- endmacro %}
 
 
-<!-- 
+<!--
     Post card
     ------------
     Displays a concise version of a post from a group
  -->
 {% macro post_card(id, title, content, posted_at, author, color, pronouns) -%}
 <div>
-    <div class="card post" id="{{ id }}">
+    <div class="card post" id="post-{{ id }}">
         <ul>
             <li class="primary">{{ title }}</li>
-            <li class="secondary">{{ date_posted }}</li>
+            <li class="secondary">{{ posted_at }}</li>
             {{ member_card(color, author, pronouns) }}
         </ul>
         <p>{{ content }}</p>
@@ -353,7 +335,7 @@
     A scrollable checkbox list that states the potential dangers for the user in operating the site
  -->
 {% macro terms_card() -%}
-<div class="card terms-of-service" id="" style="text-align: center;">
+<div class="card terms-of-service" style="text-align: center;">
     <h1>Terms of Service</h1>
 
     <div class="question">
