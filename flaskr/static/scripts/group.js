@@ -6,13 +6,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Event listener for clicks on posts to show the overlay
     posts.forEach(function(post) {
-        console.log(post.id)
-        post_id = post.id.slice("post-".length)
-        console.log(post_id)
-
         post.addEventListener("click", function() {
-            overlay.style.opacity = 1;
-            overlay.style.visibility = "visible";
+            post_id = post.id.slice("post-".length)
+            overlay.style.opacity = 1
+            overlay.style.visibility = "visible"
             
             overlay.innerHTML = `{{ expanded_post(post[${post_id}], comments[${post_id}]) }}`
 

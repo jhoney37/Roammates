@@ -124,13 +124,9 @@
     <div class="column" id="right">
         <img src="data:;base64,{{ avatars[i] }}" alt="">
         {% if groups[i][0] in joined_groups %}
-            <form method="POST">
-                <button type="submit" name="leave" value="{{ groups[i][0] }}" class="basic orange">Leave</button>
-            </form>
+            <button type="submit" name="leave" value="{{ groups[i][0] }}" class="basic orange">Leave</button>
         {% else %}
-            <form method="POST">
-                <button type="submit" name="join" value="{{ groups[i][0] }}" class="basic blue">Join</button>
-            </form>
+            <button type="submit" name="join" value="{{ groups[i][0] }}" class="basic blue">Join</button>
         {% endif %}
     </div>
 </div>
@@ -258,8 +254,8 @@
             <p>{{ post[2] }}</p>
         </div>
         <hr>
-        {% for i in comments %}
-            {{ comment_card(comments[i], post[5], post[4], post[6]) }}
+        {% for comment in comments %}
+            {{ comment_card(comment) }}
         {% endfor %}
 
         <button class="basic blue">Reply</button>
@@ -274,14 +270,14 @@
     For use in expanded post card
     Displays a user's member card, the date posted, and the comment that they typed
  -->
-{% macro comment_card(comment, color, name, pronouns) -%}
+{% macro comment_card(comment) -%}
 <div>
     <div class="card comment">
         <div id="comment-header">
-            {{ member_card(color, name, pronouns) }}
-            <h2>{{ comment[4] }}</h2>
+            {{ member_card(comment[4], comment[3], comment[5]) }}
+            <h2>{{ comment[2] }}</h2>
         </div>
-        <p>{{ comment[3] }}</p>
+        <p>{{ comment[1] }}</p>
     </div>
 </div>
 {%- endmacro %}
@@ -292,15 +288,15 @@
     ------------
     Displays a concise version of a post from a group
  -->
-{% macro post_card(id, title, content, posted_at, author, color, pronouns) -%}
+{% macro post_card(post) -%}
 <div>
-    <div class="card post" id="post-{{ id }}">
+    <div class="card post" id="post-{{ post[0] }}">
         <ul>
-            <li class="primary">{{ title }}</li>
-            <li class="secondary">{{ posted_at }}</li>
-            {{ member_card(color, author, pronouns) }}
+            <li class="primary">{{ post[1] }}</li>
+            <li class="secondary">{{ post[3] }}</li>
+            {{ member_card(post[5], post[4], post[6]) }}
         </ul>
-        <p>{{ content }}</p>
+        <p>{{ post[2] }}</p>
     </div>
 </div>
 {%- endmacro %}

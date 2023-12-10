@@ -224,27 +224,36 @@ def group(group_id):
         """, (group_id,)
     ).fetchall()
 
-    posts_formatted = {}
-    for post in posts:
-        posts_formatted[post[0]] = post
-
     comments = {}
     for post in posts:
         post_comments = db.execute(
             """
-            SELECT *
-            FROM Comments
-            WHERE id = ?
+            SELECT
+                Comments.id AS comment_id,
+                Comments.content AS comment_content,
+                Comments.created_at AS comment_created_at,
+                Users.name AS user_name,
+                Users.color AS user_color,
+                Users.pronouns AS user_pronouns
+            FROM
+                Comments
+            JOIN Users ON Comments.user_id = Users.id
+            WHERE
+                Comments.post_id = ?
             """, (post[0],)
         ).fetchall()
 
-        comments[post[0]] = post_comments
+        comments[f'{post[0]}'] = post_comments
+
+    posts_formatted = {}
+    for post in posts:
+        posts_formatted[f'{post[0]}'] = post
 
     if request.method == 'GET' and 'post_id' in request.args:
         post_id = int(request.args.get('post_id'))
 
-        return render_template('/server/overlay_template.html'
-                               , post=posts_formatted[post_id], comments=comments[post_id])
+        return render_template('/server/overlay_template.html',
+                               post=posts_formatted[f'{post_id}'], comments=comments[f'{post_id}'])
 
     return render_template("/server/group.html",
-                           group_id=group_id-1, group_info=group_info, posts=posts, members=members, comments=comments)
+                           group_id=group_id, group_info=group_info, posts=posts, members=members, comments=comments)
