@@ -141,7 +141,7 @@
     Displays the user's profile information such as their name, pronouns, avatar, and also contains a 
     carousel for displaying their active groups
  -->
-{% macro profile_card(profile_info, avatar) -%}
+{% macro profile_card(profile_info, avatar, joined_groups, group_avatars) -%}
 <div class="card profile">
     <div id="profile-head">
         <div class="text">
@@ -165,7 +165,7 @@
 
     <div id="carousel-container">
         <p>Groups</p>
-        {{ carousel_card() }}
+        {{ carousel_card(joined_groups, group_avatars) }}
     </div>
 
     <button class="basic blue" id="edit-profile">Edit</button>
@@ -178,17 +178,14 @@
     ---------------
     A carousel that allows users to view the groups they've joined on their profile page.
  -->
-{% macro carousel_card() -%}
+{% macro carousel_card(joined_groups, group_avatars) -%}
 <div class="carousel">
     <div id="container">
         <button id="carousel-left"><i class="fa-solid fa-circle-arrow-left fa-lg" style="color: #79d6d6;"></i></button>
         <div id="content">
-            {{ mini_group_card() }}
-            {{ mini_group_card() }}
-            {{ mini_group_card() }}
-            {{ mini_group_card() }}
-            {{ mini_group_card() }}
-            {{ mini_group_card() }}
+            {% for row in joined_groups %}
+                {{ mini_group_card(row, group_avatars) }}
+            {% endfor %}
         </div>
         <button id="carousel-right"><i class="fa-solid fa-circle-arrow-right fa-lg"
                 style="color: #79d6d6;"></i></button>
@@ -202,15 +199,15 @@
     ---------------
     A miniature version of the group card to be used in the profile carousel
  -->
-{% macro mini_group_card() -%}
+{% macro mini_group_card(row, group_avatars) -%}
 <div>
     <div class="card mini-group">
         <ul>
-            <li class="primary">Title</li>
-            <li class="primary">Location</li>
+            <li class="primary">{{ row[1] }}</li>
+            <li class="primary">{{ row[2] }}</li>
         </ul>
 
-        <img src="{{ url_for('static', filename='assets/Group Avatar.png') }}" alt="Group Avatar">
+        <img src="data:;base64,{{ group_avatars[row[0]] }}" alt="Group Avatar">
     </div>
 </div>
 {%- endmacro %}

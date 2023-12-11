@@ -181,6 +181,20 @@ def profile():
         """, (session.get('user')['userinfo']['name'],)
     ).fetchall()[0]
 
+    joined_groups = db.execute(
+        """
+        SELECT Groups.*
+        FROM Groups
+        JOIN GroupMembers ON Groups.id = GroupMembers.group_id
+        JOIN Users ON GroupMembers.user_id = Users.id
+        WHERE Users.email = ?
+        """, (session.get('user')['userinfo']['name'],)
+    ).fetchall()
+
+    group_avatars = {}
+    for row in joined_groups:
+        group_avatars[row[0]] = b64encode(row[4]).decode("utf-8")
+
     if profile_info[6] is not None:
         avatar = b64encode(profile_info[6].image).decode("utf-8")
     else:
@@ -201,7 +215,9 @@ def profile():
         )
         db.commit()
 
-    return render_template("/server/profile.html", profile_info=profile_info, avatar=avatar)
+    return render_template("/server/profile.html",
+                           profile_info=profile_info, avatar=avatar,
+                           joined_groups=joined_groups, group_avatars=group_avatars)
 
 
 @bp.route("/<int:group_id>/group", methods=['GET', 'POST'])
