@@ -58,6 +58,10 @@
         background-color: rgba(0,0,0,0.7);
         transition: opacity 0.25s, visibility 0.25s;
     }
+
+    .comment-window {
+        display: none;
+    }
 </style>
 {% endblock %}
 
@@ -77,7 +81,7 @@
     </div>
     <div class="member-list-container">
         {{ member_list_card(members) }}
-        <button class="basic blue" id="join">Join</button>
+        <!-- <button class="basic blue" id="join">Join</button> -->
     </div>
 </div>
 <div id="overlay-container">

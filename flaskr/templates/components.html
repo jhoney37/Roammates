@@ -8,7 +8,7 @@
     <img id="logo" src="{{ url_for('static', filename='/assets/Roammates Logo.png') }}" alt="">
     <ul>
         <li><a href="/server/groups_list"><button class="banner"><img src="" alt="">Home</button></a></li>
-        <li><a href="profile.html"><button class="banner"><img src="" alt="">Profile</button></a></li>
+        <li><a href="/server/profile"><button class="banner"><img src="" alt="">Profile</button></a></li>
         <li><button id="contact-button" class="banner"><img src="" alt="">Contact Us</button></li>
         <li><a href="/server/logout"><button class="banner"><img src="" alt="">Sign Out</button></a></li>
     </ul>
@@ -110,7 +110,8 @@
     Displays a group's summary for the 'list of groups' page
  -->
 {% macro group_card(i, groups, members, avatars, joined_groups) -%}
-<div class="card group">
+<a href="/server/{{i+1}}/group" id="group-link">
+<div class="card group" id="group-{{ i }}">
     <div class="column" id="left">
         <ul>
             <li class="primary">{{ groups[i]['title'] }}</li>
@@ -130,6 +131,7 @@
         {% endif %}
     </div>
 </div>
+</a>
 {%- endmacro %}
 
 
@@ -139,27 +141,26 @@
     Displays the user's profile information such as their name, pronouns, avatar, and also contains a 
     carousel for displaying their active groups
  -->
-{% macro profile_card() -%}
+{% macro profile_card(profile_info, avatar) -%}
 <div class="card profile">
     <div id="profile-head">
         <div class="text">
             <ul>
-                <li class="primary">Name</li>
-                <li class="secondary">Pronouns</li>
+                <li class="primary">{{ profile_info[3] }}</li>
+                <textarea id="name-area" style="display: none;"></textarea>
+                <li class="secondary">{{ profile_info[4] }}</li>
+                <textarea id="pronouns-area" style="display: none;"></textarea>
             </ul>
 
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
+            <p>{{ profile_info[5] }}</p>
+            <textarea id="bio-area" style="display: none;"></textarea>
         </div>
 
-        <img src="{{ url_for('static', filename='assets/Profile Avatar.jpg') }}" alt="Profile Avatar">
-
+        {% if avatar is none %}
+            <img src="{{ url_for('static', filename='/assets/Profile Avatar.jpg') }}" alt="Profile avatar"/>
+        {% else %}
+            <img src="data:;base64,{{ avatar }}" alt="Profile avatar"/>
+        {% endif %}
     </div>
 
     <div id="carousel-container">
@@ -167,7 +168,7 @@
         {{ carousel_card() }}
     </div>
 
-    <button class="basic blue">Edit</button>
+    <button class="basic blue" id="edit-profile">Edit</button>
 </div>
 {%- endmacro %}
 
@@ -258,7 +259,12 @@
             {{ comment_card(comment) }}
         {% endfor %}
 
-        <button class="basic blue">Reply</button>
+        <div class="comment-window">
+            <textarea name="text" cols="40" rows="5" class="comment-content"></textarea>
+            <!-- <input type="text" class="comment-content"> -->
+        </div>
+
+        <button class="basic blue comment-button">Comment</button>
     </div>
 </div>
 {%- endmacro %}
@@ -271,7 +277,7 @@
     Displays a user's member card, the date posted, and the comment that they typed
  -->
 {% macro comment_card(comment) -%}
-<div>
+<div class="comment-container">
     <div class="card comment">
         <div id="comment-header">
             {{ member_card(comment[4], comment[3], comment[5]) }}

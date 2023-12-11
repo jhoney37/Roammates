@@ -27,11 +27,9 @@ body::-webkit-scrollbar {
     display: none;
 }
 
-input {
+input, textarea {
     border: 0;
-    width: 250px;
-    height: 35px;
-    border-radius: 8px;
+    border-radius: 12px;
     background-color: var(--black);
     text-align: center;
     color: white;
@@ -39,6 +37,15 @@ input {
     margin-top: 10px;
     margin-bottom: 30px;
     transition: all 0.5s;
+}
+
+input {
+    width: 250px;
+    height: 35px;
+}
+
+textarea {
+    padding: 1em;
 }
 
 /* Components */
@@ -319,6 +326,19 @@ nav a {
     font-size: 1.1em;
 }
 
+.comment-window {
+    margin: 2em;
+    width: 50%;
+    height: 25em;
+}
+
+.comment-content {
+    display: flex;
+    margin: auto auto;
+    width: 80%;
+    height: 80%;
+}
+
 
 /* Comment Card */
 
@@ -333,10 +353,14 @@ nav a {
 
 .comment > p {
     margin: 0;
+    margin-left: 10px;
     margin-top: 5px;
     display: flex;
-    justify-content: center;
     align-items: center;
+}
+
+.comment-container {
+    width: 100%;
 }
 
 #comment-header {
@@ -455,6 +479,10 @@ nav a {
     margin-right: 0;
     font-size: 1.1em;
     padding-bottom: 2px;
+}
+
+#group-link:-webkit-any-link {
+    color: transparent; 
 }
 
 /* Profile Card */

@@ -37,7 +37,7 @@ def add_user_to_db(email):
     c.execute(
         """
         INSERT INTO Users
-        VALUES(NULL, datetime('now'), ?, NULL, NULL, NULL, NULL);
+        VALUES(NULL, datetime('now'), ?, NULL, NULL, NULL, NULL, NULL);
         """, (email,)
     )
 
@@ -52,15 +52,6 @@ def get_user(email):
     return c.fetchone()
 
 
-def session_check(_session, page):
-    if _session.get('user'):
-        return render_template(f"{page}.html",
-                               session=session.get('user'),
-                               pretty=json.dumps(session.get('user'), indent=4))
-    else:
-        return redirect("/")
-
-
 @bp.route("/login")
 def login():
     return oauth.auth0.authorize_redirect(redirect_uri=url_for("server.callback", _external=True))
@@ -71,7 +62,6 @@ def callback():
     try:
         token = oauth.auth0.authorize_access_token()
         session["user"] = token
-        # db.add_user(token['userinfo']['name'])
         return redirect("/")
     except errors.OAuthError:
         return render_template("server/login.html", error='Please verify your email before signing in.')
@@ -179,9 +169,39 @@ def group_membership():
     return redirect('/server/groups_list')
 
 
-@bp.route("/profile")
+@bp.route("/profile", methods=['POST', 'GET'])
 def profile():
-    return session_check(session, "/server/profile")
+    db = get_db()
+
+    profile_info = db.execute(
+        """
+        SELECT *
+        FROM Users
+        WHERE email = ?
+        """, (session.get('user')['userinfo']['name'],)
+    ).fetchall()[0]
+
+    if profile_info[6] is not None:
+        avatar = b64encode(profile_info[6].image).decode("utf-8")
+    else:
+        avatar = None
+
+    if request.method == 'POST':
+        data = request.get_json()
+        name = data['name']
+        pronouns = data['pronouns']
+        bio = data['bio']
+
+        db.execute(
+            """
+            UPDATE Users
+            SET name = ?, pronouns = ?, bio = ?
+            WHERE email = ?
+            """, (name, pronouns, bio, session.get('user')['userinfo']['name'],)
+        )
+        db.commit()
+
+    return render_template("/server/profile.html", profile_info=profile_info, avatar=avatar)
 
 
 @bp.route("/<int:group_id>/group", methods=['GET', 'POST'])
@@ -249,11 +269,22 @@ def group(group_id):
     for post in posts:
         posts_formatted[f'{post[0]}'] = post
 
-    if request.method == 'GET' and 'post_id' in request.args:
+    if 'post_id' in request.args:
         post_id = int(request.args.get('post_id'))
 
-        return render_template('/server/overlay_template.html',
-                               post=posts_formatted[f'{post_id}'], comments=comments[f'{post_id}'])
+        if request.method == 'GET':
+            return render_template('/server/overlay_template.html',
+                                   post=posts_formatted[f'{post_id}'], comments=comments[f'{post_id}'])
+        elif request.method == 'POST':
+            content = request.get_json()
+
+            db.execute(
+                """
+                INSERT INTO Comments
+                VALUES(NULL, ?, (SELECT id FROM Users WHERE email=?), ?, datetime('now'))
+                """, (post_id, session.get('user')['userinfo']['name'], content)
+            )
+            db.commit()
 
     return render_template("/server/group.html",
                            group_id=group_id, group_info=group_info, posts=posts, members=members, comments=comments)
